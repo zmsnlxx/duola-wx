@@ -1,0 +1,59 @@
+{
+  "pages":[
+    "pages/personal/personal",
+    "pages/index/index",
+    "pages/concatUs/concatUs",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/createOrder/createOrder",
+    "pages/sign/sign",
+    "pages/signature/signature",
+    "pages/feedback/feedback",
+    "pages/feedbackDetail/feedbackDetail",
+    "pages/transportOrder/transportOrder",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/changeProject/changeProject"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#161616",
+    "navigationBarTitleText": "多拉",
+    "navigationBarTextStyle":"white"
+  },
+  "usingComponents": {
+    "custom-tabbar": "components/customTabbar/customTabbar",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-notice-bar": "/miniprogram_npm/@vant/weapp/notice-bar/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-switch": "/miniprogram_npm/@vant/weapp/switch/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+    "van-image": "/miniprogram_npm/@vant/weapp/image/index",
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
+    "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
+    "van-datetime-picker": "/miniprogram_npm/@vant/weapp/datetime-picker/index",
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-uploader": "/miniprogram_npm/@vant/weapp/uploader/index",
+    "van-rate": "/miniprogram_npm/@vant/weapp/rate/index",
+    "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-collapse": "/miniprogram_npm/@vant/weapp/collapse/index",
+    "van-collapse-item": "/miniprogram_npm/@vant/weapp/collapse-item/index",
+    "van-dropdown-menu": "/miniprogram_npm/@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index" },
+      { "pagePath": "pages/personal/personal" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

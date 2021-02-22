@@ -1,0 +1,4 @@
+.order-detail {
+  min-height: 100vh;
+  background: #EDEDED;
+}

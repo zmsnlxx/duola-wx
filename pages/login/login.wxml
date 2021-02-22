@@ -1,0 +1,14 @@
+<view class="login">
+  <image class="logo" src="../../public/image/logo.png" />
+  <view class="content">
+    <van-field center type="text" clearable value="{{ params.userName }}" bind:change="onChange" data-name="userName" placeholder="请输入手机号" border="{{ false }}">
+      <van-icon slot="left-icon" name="graphic" color="#FFFFFF" size="20" />
+    </van-field>
+    <van-field center type="password" value="{{ params.password }}" bind:change="onChange" data-name="password" clearable placeholder="密码" border="{{ false }}">
+      <van-icon slot="left-icon" name="checked" color="#FFFFFF" size="20" />
+    </van-field>
+    <van-button color="#16D96C" block round bindtap="login">登录</van-button>
+    <view class="info" bindtap="goRegister">暂无账号，点击注册</view>
+  </view>
+</view>
+<van-toast id="van-toast" />

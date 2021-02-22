@@ -1,0 +1,6 @@
+<view class="home">
+  <view class="demo" wx:for="{{ 10 }}"></view>
+
+  <custom-tabbar class="custom-tabbar" activeIndex='0' />
+</view>
+<van-toast id="van-toast" />

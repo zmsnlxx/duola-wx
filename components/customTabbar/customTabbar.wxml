@@ -1,0 +1,10 @@
+<view class="custom-tabbar">
+  <image class="custom-bg" src="../../public/image/tabbar/custom-tabbar-bg.png" />
+  <image class="publish" src="../../public/image/tabbar/publish.png" bindtap="publish" />
+  <view class="content">
+    <view class="item" wx:for="{{ tabs }}" wx:key="index" bindtap='clickTag' data-index='{{ index }}'>
+      <image class="img" src="{{ index == activeIndex ? item.activeImg : item.inactiveImg }}" />
+      <view class="{{ index == activeIndex ? 'active-text' : '' }}">{{ item.content }}</view>
+    </view>
+  </view>
+</view>

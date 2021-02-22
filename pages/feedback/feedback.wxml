@@ -1,0 +1,10 @@
+<view class="feedback">
+  <view class="item" wx:for="{{ list }}" wx:key="index" bindtap="goDetail" data-id="{{ item.id }}">
+    <view class="title">
+      <view class="name">{{ item.projectName }}</view>
+      <view class="status {{ ['pending', 'success', 'error'][item.examineStatus] }}">{{ item.examineStatusStr }}</view>
+    </view>
+    <view class="part">{{ item.part }}</view>
+    <view class="time">{{ item.addTime }}</view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="register">
+  <view class="item" wx:for="{{ form }}" wx:key="index">
+    <view class="label">{{ item.label }}</view>
+    <view class="placeholder">{{ item.placeholder }}</view>
+    <van-field placeholder="请输入" type="{{ item.type }}" border="{{ false }}" bind:change="changeValue" clearable data-key="{{ item.key }}" />
+  </view>
+  <van-button color="#16D96C" bindtap="register" block>提交审核</van-button>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,4 @@
+.change-project {
+  min-height: 100vh;
+  background: #EDEDED;
+}

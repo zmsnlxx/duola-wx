@@ -1,0 +1,47 @@
+.custom-tabbar {
+  height: 90px;
+  width: 100%;
+  position: relative;
+}
+.custom-tabbar .custom-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.custom-tabbar .publish {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  bottom: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.custom-tabbar .content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.custom-tabbar .content .item {
+  width: calc(50% - 42px);
+  font-size: 12px;
+  color: #B1B1B1;
+  text-align: center;
+  padding: 32px 0;
+}
+.custom-tabbar .content .item .img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+.custom-tabbar .content .item .active-text {
+  color: #161616;
+}

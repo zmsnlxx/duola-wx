@@ -1,0 +1,42 @@
+.order {
+  min-height: 100vh;
+  background: #EDEDED;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.order .item {
+  padding: 16px 15px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.order .item .title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.order .item .title .name {
+  color: #000000;
+  font-size: 16px;
+}
+.order .item .title .status {
+  font-size: 14px;
+}
+.order .item .title .pending {
+  color: #596384;
+}
+.order .item .title .success {
+  color: #16D96C;
+}
+.order .item .title .error {
+  color: #F67272;
+}
+.order .item .part {
+  margin-bottom: 16px;
+  color: #999999;
+  font-size: 14px;
+}
+.order .item .time {
+  color: #999999;
+  font-size: 12px;
+}
