@@ -1,1 +1,43 @@
-<view class="create-order"></view>
+<wxs module="filter" src="../../utils/util.wxs" />
+
+<view class="create-order">
+  <view class="item" wx:for="{{ labels }}" wx:key="index">
+    <view class="title">
+      <view wx:if="{{ item.required }}" class="required">*</view>
+      <view class="label">{{ item.label }}</view>
+    </view>
+    <van-field wx:if="{{ item.class === 'input' }}" type="{{ item.type }}" placeholder="请输入" border="{{ false }}" bind:change="changeValue" clearable data-key="{{ item.key }}" />
+    <van-field wx:if="{{ item.disabled }}" value="{{ form.projectName }}" disabled border="{{ false }}" />
+    <van-cell wx:if="{{ item.class === 'select' }}" title="{{ name[item.key] || '请选择' }}" is-link arrow-direction="down" data-key="{{ item.key }}" bindtap="open" />
+    <van-cell wx:if="{{ item.class === 'time' }}" title="{{ form.wishTime ? filter.formatTime(form.wishTime) : '请选择'  }}" data-key="{{ item.key }}" bindtap="open">
+      <van-icon slot="right-icon" name="notes-o" color="#D8D8D8" size="16" />
+    </van-cell>
+    <van-radio-group wx:if="{{ item.class === 'radio' }}" value="{{ radio }}" bind:change="onChange">
+      <view class="radios">
+        <van-radio use-icon-slot value="{{ radio }}" name="1">
+          <image slot="icon" src="{{ radio === '1' ? '../../public/image/radio-active.png' : '../../public/image/radio.png' }}" />是
+        </van-radio>
+        <van-radio use-icon-slot value="{{ radio }}" name="2">
+          <image slot="icon" src="{{ radio === '2' ? '../../public/image/radio-active.png' : '../../public/image/radio.png' }}" />否
+        </van-radio>
+      </view>
+    </van-radio-group>
+  </view>
+  <view class="footer">
+    <van-button color="#16D96C" plain block class="btn" bindtap="cancel">取消</van-button>
+    <van-button color="#16D96C" bindtap="submit" class="submit-btn" block>提交</van-button>
+  </view>
+</view>
+<van-toast id="van-toast" />
+<van-popup show="{{ show.wishTime }}" catchtouchmove="preventTouchMove" position="bottom" data-key="wishTime" custom-style="height: 40%;" bind:close="close">
+  <van-datetime-picker title="请选择期望时间" min-date="{{ minDate }}" show-toolbar data-key="wishTime" data-name="wishName" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
+
+<van-popup show="{{ show.goodsId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="goodsId" custom-style="height: 40%;" bind:close="close">
+  <van-picker title="请选择需求标号" data-key="goodsId" show-toolbar bind:cancel="close" bind:confirm="onConfirm" columns="{{ goodsIds }}" />
+</van-popup>
+
+<van-popup show="{{ show.specialId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="specialId" custom-style="height: 40%;" bind:close="close">
+  <van-picker title="请选择特殊要求" data-key="specialId" show-toolbar bind:cancel="close" bind:confirm="onConfirm" columns="{{ specialIds }}" />
+</van-popup>
+

@@ -3,16 +3,29 @@ import { ajax } from '../../utils/http'
 
 Page({
   data: {
-    motto: 'Hello World',
+    result: {
+      accumulativeSign: '', //累计签收
+      signing: '', // 待签收 ,
+      todaySign: '', // 今日签收 ,
+      transit: '', // 在途方量
+    },
+    labels: [
+      { label: '今日签收', key: 'todaySign' },
+      { label: '待签收', key: 'signing' },
+      { label: '在途方量', key: 'transit' },
+    ]
   },
   onLoad() {
+    const { projectId } = wx.getStorageSync('user')
+    ajax('/wxController/getTransOrderByProjectId', { projectId, startPage: 1, pageSize: 999 }).then(res => {
+      console.log(res)
+    })
+    ajax('/wxController/signCount', { id: projectId }).then(res => {
+      console.log(res)
+      Object.keys(this.data.result).forEach(key => {
+        this.setData({ [`result.${key}`]: res[key] })
+      })
+      console.log(this.data.result)
+    })
   },
-  onShow() {
-    const token = wx.getStorageSync('token')
-    if (!token) {
-      Toast({ type: 'fail', context: this, message: '暂未登录，请登录后访问！', onClose: () => {
-        wx.navigateTo({ url: '/pages/login/login' })
-      }})
-    }
-  }
 })

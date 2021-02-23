@@ -1,0 +1,62 @@
+.create-order {
+  min-height: 100vh;
+  background: #EDEDED;
+  padding: 24px;
+  box-sizing: border-box;
+
+  .item {
+    margin-bottom: 24px;
+
+    .title {
+      display: flex;
+      line-height: 22px;
+
+      .required {
+        color: #E02020;
+        margin-right: 5px;
+      }
+
+      .label {
+        color: #000000;
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .default {
+      color: #999999;
+    }
+
+    .radios {
+      width: 100%;
+      display: flex;
+      margin-top: 16px;
+
+      image {
+        width: 20px;
+        height: 20px;
+      }
+
+      .van-radio {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .footer {
+    margin-top: 50px;
+    display: flex;
+
+    .btn {
+      width: 72px;
+      margin-right: 8px;
+    }
+    .van-button--plain {
+      background: #EDEDED;
+    }
+
+    .submit-btn {
+      width: calc(100% - 80px);
+    }
+  }
+}

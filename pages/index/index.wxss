@@ -3,6 +3,63 @@
   background: #EDEDED;
   padding-bottom: 90px;
 }
+.home .header {
+  height: 230px;
+  background: #161616;
+  width: 100%;
+  padding-top: 24px;
+}
+.home .header .scan {
+  text-align: center;
+  color: #FFFFFF;
+}
+.home .header .scan .van-icon {
+  margin-bottom: 8px;
+}
+.home .header .info {
+  background: linear-gradient(180deg, #EDEDED 0%, #FFFFFF 100%);
+  border-radius: 8px;
+  padding: 32px 16px;
+  position: absolute;
+  top: 130px;
+  left: 16px;
+  height: 180px;
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+}
+.home .header .info .item {
+  width: 100%;
+}
+.home .header .info .item.total {
+  margin-bottom: 12px;
+}
+.home .header .info .item.total .value .num {
+  font-size: 30px;
+}
+.home .header .info .item .label {
+  color: #6D6C6D;
+  font-size: 12px;
+}
+.home .header .info .item .value {
+  display: flex;
+  align-items: center;
+}
+.home .header .info .item .value .num {
+  color: #000000;
+  font-size: 18px;
+  margin-right: 8px;
+}
+.home .header .info .item .value .unit {
+  color: #9B9B9B;
+  font-size: 14px;
+}
+.home .header .info .box {
+  width: 100%;
+  display: flex;
+}
+.home .header .info .box /deep/ .item {
+  width: 33%;
+}
 .home .custom-tabbar {
   position: fixed;
   bottom: 0;

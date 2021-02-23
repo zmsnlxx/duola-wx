@@ -3,6 +3,77 @@
   background: #EDEDED;
   padding-bottom: 90px;
 
+  .header {
+    height: 230px;
+    background: #161616;
+    width: 100%;
+    padding-top: 24px;
+
+    .scan {
+      text-align: center;
+      color: #FFFFFF;
+
+      .van-icon {
+        margin-bottom: 8px;
+      }
+    }
+
+    .info {
+      background: linear-gradient(180deg, #EDEDED 0%, #FFFFFF 100%);
+      border-radius: 8px;
+      padding: 32px 16px;
+      position: absolute;
+      top: 130px;
+      left: 16px;
+      height: 180px;
+      box-sizing: border-box;
+      width: calc(100% - 32px);
+
+      .item {
+        width: 100%;
+
+        &.total {
+          margin-bottom: 12px;
+
+          .value {
+            .num {
+              font-size: 30px;
+            }
+          }
+        }
+        .label {
+          color: #6D6C6D;
+          font-size: 12px;
+        }
+
+        .value {
+          display: flex;
+          align-items: center;
+
+          .num {
+            color: #000000;
+            font-size: 18px;
+            margin-right: 8px;
+          }
+
+          .unit {
+            color: #9B9B9B;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .box {
+        width: 100%;
+        display: flex;
+
+        /deep/ .item {
+          width: 33%;
+        }
+      }
+    }
+  }
+
   .custom-tabbar {
     position: fixed;
     bottom: 0;

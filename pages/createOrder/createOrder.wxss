@@ -1,1 +1,51 @@
-/* pages/createOrder/createOrder.wxss */
+.create-order {
+  min-height: 100vh;
+  background: #EDEDED;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.create-order .item {
+  margin-bottom: 24px;
+}
+.create-order .item .title {
+  display: flex;
+  line-height: 22px;
+}
+.create-order .item .title .required {
+  color: #E02020;
+  margin-right: 5px;
+}
+.create-order .item .title .label {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.create-order .item .default {
+  color: #999999;
+}
+.create-order .item .radios {
+  width: 100%;
+  display: flex;
+  margin-top: 16px;
+}
+.create-order .item .radios image {
+  width: 20px;
+  height: 20px;
+}
+.create-order .item .radios .van-radio {
+  margin-right: 30px;
+}
+.create-order .footer {
+  margin-top: 50px;
+  display: flex;
+}
+.create-order .footer .btn {
+  width: 72px;
+  margin-right: 8px;
+}
+.create-order .footer .van-button--plain {
+  background: #EDEDED;
+}
+.create-order .footer .submit-btn {
+  width: calc(100% - 80px);
+}

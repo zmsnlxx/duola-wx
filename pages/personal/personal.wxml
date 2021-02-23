@@ -6,5 +6,8 @@
   <view class="box">
     <van-cell wx:for="{{ labels }}" bind:click="jump" data-path="{{ item.path }}" wx:key="index" center title="{{ item.label }}" is-link value="{{ item.value }}" border="{{ false }}" />
   </view>
+  <view class="footer">
+    <van-button block color="#596384" class="btn" bindtap="logout">退出账户</van-button>
+  </view>
   <custom-tabbar class="custom-tabbar" activeIndex='1' />
 </view>

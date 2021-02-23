@@ -1,4 +1,0 @@
-.create-order {
-  min-height: 100vh;
-  background: #EDEDED;
-}

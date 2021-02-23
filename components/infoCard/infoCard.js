@@ -1,16 +1,12 @@
-const { tabs } = require('./config.js')
 Component({
   properties: {
-    activeIndex: {
-      type: Number,
-      value: 0,
+    info: {
+      type: Object,
+      value: {},
     },
   },
   data: {
-    tabs,
-  },
-  created() {
-    wx.hideTabBar({ aniamtion: false })
+
   },
   methods: {
     clickTag(e) {

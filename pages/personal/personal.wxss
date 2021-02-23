@@ -29,6 +29,12 @@
 .personal .box .van-cell .van-cell__value {
   font-size: 10px;
 }
+.personal .footer {
+  position: fixed;
+  bottom: 100px;
+  left: 16px;
+  width: calc(100% - 32px);
+}
 .personal .custom-tabbar {
   position: fixed;
   bottom: 0;
