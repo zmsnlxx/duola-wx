@@ -1,0 +1,8 @@
+<view class="home">
+  <image src="../../public/image/home-bg.png" />
+  <view class="content">
+    <view class="title">欢迎使用多拉</view>
+    <view class="msg">立即加入即可在线下单，查看车辆位置</view>
+    <van-button color="#16D96C" block open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即加入</van-button>
+  </view>
+</view>

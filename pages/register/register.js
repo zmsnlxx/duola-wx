@@ -25,6 +25,7 @@ Page({
   },
   register() {
     const { name, password, phone, rePassword, remark } = this.data.params
+    const { openid } = wx.getStorageSync('loginData')
     if (!name) return Toast.fail('请输入您的真实姓名！')
     if (!phone) return Toast.fail('请输入您的手机号！')
     if (!password) return Toast.fail('请输入您的密码！')
@@ -32,9 +33,11 @@ Page({
     if (!remark) return Toast.fail('请输入您需要加入的工程！')
     if (rePassword !== password) return Toast.fail('两次密码不一致！')
     if (!telephoneReg.test(phone)) return Toast.fail('手机号码格式错误')
-    console.log(this.data.params)
 
-    ajax('/wxController/wxRegister', this.data.params, 'post').then(res => {
+    const params = Object.assign({}, this.data.params, { openid })
+    console.log(params)
+
+    ajax('/wxController/wxRegister', params, 'post').then(res => {
       console.log(res)
       Toast({
         type: 'success',

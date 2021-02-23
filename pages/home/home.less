@@ -1,0 +1,39 @@
+.home {
+  height: 100vh;
+  box-sizing: border-box;
+
+  image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+    color: #FFFFFF;
+
+    .title {
+      margin: 0 0 17px 24px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .msg {
+      margin: 0 0 17px 24px;
+      font-size: 14px;
+    }
+
+    .van-button {
+      width: calc(100% - 48px);
+      position: absolute;
+      bottom: 30px;
+      left: 24px;
+    }
+  }
+}
