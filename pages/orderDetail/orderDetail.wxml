@@ -1,1 +1,16 @@
-<view class="order-detail">订单详情</view>
+<view class="order-detail">
+  <view class="content">
+    <view class="title">
+      <view class="title-name">订单信息</view>
+      <view class="title-status">审核拒绝</view>
+    </view>
+    <view class="item" wx:for="{{ labels }}" wx:key="index">
+      <view class="label">{{ item.label }}</view>
+      <view class="value">{{ result[item.key] }}</view>
+    </view>
+  </view>
+  <view class="footer">
+    <van-button color="#16D96C" plain block class="btn" bindtap="cancel">取消</van-button>
+    <van-button color="#16D96C" bindtap="submit" class="submit-btn" block>修改</van-button>
+  </view>
+</view>

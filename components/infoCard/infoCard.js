@@ -6,7 +6,7 @@ Component({
     },
   },
   data: {
-
+    projectName: wx.getStorageSync('user').projectName,
   },
   methods: {
     clickTag(e) {

@@ -23,6 +23,16 @@
       </view>
     </view>
   </view>
+  <view class="content">
+    <view class="title">
+      <view class="left">等待签收</view>
+      <view class="right">
+        全部车辆
+        <van-icon name="play" color="#16D96C" size="16" />
+      </view>
+    </view>
+    <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
+  </view>
   <custom-tabbar class="custom-tabbar" activeIndex='0' />
 </view>
 <van-toast id="van-toast" />

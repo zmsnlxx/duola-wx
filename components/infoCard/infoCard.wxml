@@ -1,1 +1,38 @@
-<view class="info-card">卡片</view>
+<view class="info-card">
+  <view class="title">{{ projectName }} | {{ info.carNo }}</view>
+  <view class="card">
+    <view class="top">
+      <view class="header between-flex">
+        <view class="car-no">{{ info.carNo }}</view>
+        <view class="status">{{ info.status }}</view>
+      </view>
+      <view class="content between-flex">
+        <view class="items flex">
+          <view class="item flex">
+            <view class="text">发</view>
+            <view class="value">16m³</view>
+          </view>
+          <view class="item flex">
+            <view class="text">签</view>
+            <view class="value">13m³</view>
+          </view>
+        </view>
+        <van-button color="#16D96C" class="btn" block round>签收</van-button>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="flex time">
+        <view class="text">出厂时间</view>
+        <view class="value">2020/09/09 14:00</view>
+      </view>
+      <view class="flex time">
+        <view class="text">到达时间</view>
+        <view class="value">2020/09/09 14:00</view>
+      </view>
+      <view class="flex time">
+        <view class="text">离开时间</view>
+        <view class="value">2020/09/09 14:00</view>
+      </view>
+    </view>
+  </view>
+</view>

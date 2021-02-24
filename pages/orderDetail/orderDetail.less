@@ -1,4 +1,60 @@
 .order-detail {
   min-height: 100vh;
   background: #EDEDED;
+
+  .content {
+    padding: 24px 40px;
+    background: #FFFFFF;
+
+    .title {
+      line-height: 25px;
+      display: flex;
+      justify-content: space-between;
+
+      .title-name {
+        color: #000000;
+        font-size: 18px;
+      }
+
+      .title-status {
+        font-size: 14px;
+      }
+    }
+
+    .item {
+      margin-top: 16px;
+      font-size: 14px;
+      display: flex;
+
+      .label {
+        color: #6D6C6D;
+        width: 70px;
+        margin-right: 28px;
+      }
+
+      .value {
+        color: #000000;
+      }
+    }
+  }
+
+  .footer {
+    width: calc(100% - 32px);
+    position: fixed;
+    left: 16px;
+    bottom: 32px;
+    display: flex;
+
+    .btn {
+      width: 72px;
+      margin-right: 8px;
+    }
+    .van-button--plain {
+      background: #EDEDED;
+    }
+
+    .submit-btn {
+      width: calc(100% - 80px);
+    }
+  }
 }

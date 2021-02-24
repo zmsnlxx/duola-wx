@@ -1,4 +1,60 @@
 .info-card {
+  margin-top: 16px;
+}
+.info-card .title {
+  font-size: 12px;
+  color: #A0A0A0;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+.info-card .card {
   background: #FFFFFF;
   border-radius: 4px;
+  padding: 16px;
+  font-size: 14px;
+}
+.info-card .card .between-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.info-card .card .flex {
+  display: flex;
+}
+.info-card .card .text {
+  color: #B1B1B1;
+  margin-right: 10px;
+}
+.info-card .card .value {
+  color: #000000;
+}
+.info-card .card .top {
+  border-bottom: 1px solid #C8CEE3;
+  padding-bottom: 16px;
+}
+.info-card .card .top .header .car-no {
+  font-size: 16px;
+  font-weight: 600;
+}
+.info-card .card .top .header .status {
+  color: #596384;
+}
+.info-card .card .top .content {
+  height: 30px;
+  line-height: 30px;
+}
+.info-card .card .top .content .btn button {
+  height: 30px;
+  width: 80px;
+}
+.info-card .card .top .content .items {
+  width: calc(100% - 90px);
+}
+.info-card .card .top .content .items .item {
+  flex: 1;
+}
+.info-card .card .bottom {
+  padding-top: 16px;
+}
+.info-card .card .bottom .time:not(:last-child) {
+  margin-bottom: 8px;
 }

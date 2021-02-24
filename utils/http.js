@@ -17,7 +17,7 @@ function ajax(url, data, method, otherToken) {
             resolve(obj.data.data)
           } else if (obj.data.code === 401) {
             wx.showToast({ title: '登录过期，请重新登录', icon: 'none' })
-            wx.switchTab({ url: '/pages/login/login' })
+            wx.navigateTo({ url: '/pages/login/login' })
           } else if (obj.data.code === 402) {
             // 非工作人员
             resolve(null)
