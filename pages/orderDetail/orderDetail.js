@@ -1,4 +1,5 @@
 import { ajax } from '../../utils/http'
+import { examineStatus } from '../../utils/constant'
 
 Page({
   data: {
@@ -13,15 +14,15 @@ Page({
       { label: '是否泵送',  key: 'isPump' },
       { label: '特殊要求', key: 'specialId' },
     ],
-    result: {
-      goodsId: '111', isPump: '1', part: 222, projectAddress: '333', projectId: '44', projectName: '555', slump: '12', specialId: '313', total: '312', wishTime: '312'
-    }
+    examineStatus,
+    result: null
   },
   onLoad: function (options) {
     console.log(options.id)
     if (options.id) {
       ajax('/wxController/onlineOrderInfo', { id: options.id }).then(res => {
         console.log(res)
+        this.setData({ result: res })
       })
     }
   },
@@ -29,6 +30,7 @@ Page({
     wx.navigateBack()
   },
   submit() {
-
+    wx.setStorageSync('currentOrder', this.data.result)
+    wx.navigateTo({ url: '/pages/createOrder/createOrder?type=edit' })
   }
 })

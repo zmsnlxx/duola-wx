@@ -1,8 +1,10 @@
 import { ajax } from '../../utils/http'
+import { examineStatus } from '../../utils/constant'
 
 Page({
   data: {
-    list: []
+    list: [],
+    examineStatus
   },
   onLoad: function () {
     const user = wx.getStorageSync('user');

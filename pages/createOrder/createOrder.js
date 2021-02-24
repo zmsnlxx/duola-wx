@@ -18,6 +18,7 @@ Page({
     specialIds: [],
     goodsIds: [],
     radio: '1',
+    isEdit: false,
     form: { goodsId: '', isPump: '1', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '', total: '', wishTime: '', },
     show: { goodsId: false, specialId: false, wishTime: false },
     formatter(type, value) {
@@ -30,7 +31,7 @@ Page({
     },
     name: { specialId: '请选择', goodsId: '请选择' },
   },
-  onLoad: function () {
+  onLoad: function (option) {
     const { projectId, projectName } = wx.getStorageSync('user')
     this.setData({ 'form.projectName': projectName, 'form.projectId': projectId })
     ajax('/goodsPullList', { goodsType: [1, 2] },  'post').then(res => {
@@ -42,6 +43,13 @@ Page({
       })
       this.setData({ specialIds, goodsIds })
     })
+    if (option.type === 'edit') {
+      this.setData({ isEdit: true })
+      const currentOrder = wx.getStorageSync('currentOrder')
+      Object.keys(this.data.form).forEach(key => {
+        this.setData({ [`form.${key}`]: currentOrder[key] })
+      })
+    }
   },
   onChange(e) {
     this.setData({ radio: e.detail, 'form.isPump': e.detail })
@@ -80,12 +88,12 @@ Page({
     if (!total) return Toast.fail('请输入需求方量')
     if (!wishTime) return Toast.fail('请选择期望时间')
 
-    console.log(this.data.form)
-    ajax('/wxController/onlineOrderAdd', this.data.form, 'post').then(() => {
+    const api = this.data.isEdit ? '/wxController/onlineOrderEdit' : '/wxController/onlineOrderAdd'
+    ajax(api, this.data.form, 'post').then(() => {
       Toast({
         type: 'success',
         context: this,
-        message: '提交成功',
+        message: `${this.data.isEdit ? '编辑' : '提交'}成功`,
         onClose: () => {
           wx.navigateBack()
         }

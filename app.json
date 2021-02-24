@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/order/order",
     "pages/home/home",
     "pages/index/index",
     "pages/createOrder/createOrder",
     "pages/personal/personal",
     "pages/otherCar/otherCar",
-    "pages/order/order",
     "pages/orderDetail/orderDetail",
     "pages/sign/sign",
     "pages/signature/signature",

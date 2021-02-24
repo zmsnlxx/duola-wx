@@ -6,7 +6,7 @@
       <view wx:if="{{ item.required }}" class="required">*</view>
       <view class="label">{{ item.label }}</view>
     </view>
-    <van-field wx:if="{{ item.class === 'input' }}" type="{{ item.type }}" placeholder="请输入" border="{{ false }}" bind:change="changeValue" clearable data-key="{{ item.key }}" />
+    <van-field wx:if="{{ item.class === 'input' }}" type="{{ item.type }}" value="{{ form[item.key] }}" placeholder="请输入" border="{{ false }}" bind:change="changeValue" clearable data-key="{{ item.key }}" />
     <van-field wx:if="{{ item.disabled }}" value="{{ form.projectName }}" disabled border="{{ false }}" />
     <van-cell wx:if="{{ item.class === 'select' }}" title="{{ name[item.key] || '请选择' }}" is-link arrow-direction="down" data-key="{{ item.key }}" bindtap="open" />
     <van-cell wx:if="{{ item.class === 'time' }}" title="{{ form.wishTime ? filter.formatTime(form.wishTime) : '请选择'  }}" data-key="{{ item.key }}" bindtap="open">
@@ -30,7 +30,7 @@
 </view>
 <van-toast id="van-toast" />
 <van-popup show="{{ show.wishTime }}" catchtouchmove="preventTouchMove" position="bottom" data-key="wishTime" custom-style="height: 40%;" bind:close="close">
-  <van-datetime-picker title="请选择期望时间" min-date="{{ minDate }}" show-toolbar data-key="wishTime" data-name="wishName" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+  <van-datetime-picker title="请选择期望时间" min-date="{{ minDate }}" show-toolbar data-key="wishTime" value="{{ form.wishTime }}" data-name="wishName" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
 </van-popup>
 
 <van-popup show="{{ show.goodsId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="goodsId" custom-style="height: 40%;" bind:close="close">

@@ -18,6 +18,15 @@
 .order-detail .content .title .title-status {
   font-size: 14px;
 }
+.order-detail .content .title .title-status.pending {
+  color: #596384;
+}
+.order-detail .content .title .title-status.success {
+  color: #16D96C;
+}
+.order-detail .content .title .title-status.error {
+  color: #F67272;
+}
 .order-detail .content .item {
   margin-top: 16px;
   font-size: 14px;
