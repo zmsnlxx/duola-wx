@@ -26,7 +26,7 @@
   <view class="content">
     <view class="title">
       <view class="left">等待签收</view>
-      <view class="right">
+      <view class="right" bindtap="jump">
         全部车辆
         <van-icon name="play" color="#16D96C" size="16" />
       </view>
@@ -35,4 +35,3 @@
   </view>
   <custom-tabbar class="custom-tabbar" activeIndex='0' />
 </view>
-<van-toast id="van-toast" />

@@ -1,4 +1,3 @@
-import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 import { ajax } from '../../utils/http'
 
 Page({
@@ -28,4 +27,7 @@ Page({
       })
     })
   },
+  jump() {
+    wx.navigateTo({ url: '/pages/otherCar/otherCar' })
+  }
 })

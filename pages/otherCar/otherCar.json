@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "其他车辆",
+  "usingComponents": {
+    "info-card": "../../components/infoCard/infoCard"
+  }
+}

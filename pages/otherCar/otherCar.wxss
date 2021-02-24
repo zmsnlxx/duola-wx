@@ -1,0 +1,9 @@
+.other-car {
+  min-height: 100vh;
+  background: #EDEDED;
+}
+.other-car .map {
+  height: 260px;
+  width: 100%;
+  background: #FFFFFF;
+}
