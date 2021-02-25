@@ -1,3 +1,5 @@
+import { transOrderStatus } from '../../utils/constant'
+
 Component({
   properties: {
     info: {
@@ -7,6 +9,7 @@ Component({
   },
   data: {
     projectName: wx.getStorageSync('user').projectName,
+    transOrderStatus,
   },
   methods: {
     clickTag(e) {

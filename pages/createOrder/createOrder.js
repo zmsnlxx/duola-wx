@@ -9,7 +9,7 @@ Page({
       { label: '浇筑部位', required: true, key: 'part', type: 'text', class: 'input' },
       { label: '塌落度', required: true, key: 'slump', type: 'text', class: 'input' },
       { label: '需求标号', required: true, key: 'goodsId', class: 'select' },
-      { label: '需求方量', required: true, key: 'total', type: 'text', class: 'input' },
+      { label: '需求方量', required: true, key: 'total', type: 'number', class: 'input' },
       { label: '期望时间', required: true, key: 'wishTime', class: 'time' },
       { label: '是否泵送', required: true, key: 'isPump', class: 'radio' },
       { label: '特殊要求', key: 'specialId', class: 'select' },
@@ -44,6 +44,7 @@ Page({
       this.setData({ specialIds, goodsIds })
     })
     if (option.type === 'edit') {
+      wx.setNavigationBarTitle({ title: '编辑订单' })
       this.setData({ isEdit: true })
       const currentOrder = wx.getStorageSync('currentOrder')
       Object.keys(this.data.form).forEach(key => {

@@ -1,4 +1,6 @@
 <view class="other-car">
-  <view class="map">地图</view>
-  <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
+  <map id="mapId" class="map" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" show-location />
+  <view class="content">
+    <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
+  </view>
 </view>

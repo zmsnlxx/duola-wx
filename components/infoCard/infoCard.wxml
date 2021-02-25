@@ -4,7 +4,7 @@
     <view class="top">
       <view class="header between-flex">
         <view class="car-no">{{ info.carNo }}</view>
-        <view class="status">{{ info.status }}</view>
+        <view class="status">{{ transOrderStatus[info.status - 1] }}</view>
       </view>
       <view class="content between-flex">
         <view class="items flex">
@@ -17,21 +17,21 @@
             <view class="value">13m³</view>
           </view>
         </view>
-        <van-button color="#16D96C" class="btn" block round>签收</van-button>
+        <van-button wx:if="{{ info.status === 4 }}" color="#16D96C" class="btn" block round>签收</van-button>
       </view>
     </view>
     <view class="bottom">
       <view class="flex time">
-        <view class="text">出厂时间</view>
-        <view class="value">2020/09/09 14:00</view>
+        <view class="text left">出厂时间</view>
+        <view class="value">{{ info.leaveMixTime || '- -' }}</view>
       </view>
       <view class="flex time">
-        <view class="text">到达时间</view>
-        <view class="value">2020/09/09 14:00</view>
+        <view class="text left">到达时间</view>
+        <view class="value">{{ info.arrivalSiteTime || '- -' }}</view>
       </view>
       <view class="flex time">
-        <view class="text">离开时间</view>
-        <view class="value">2020/09/09 14:00</view>
+        <view class="text left">离开时间</view>
+        <view class="value">{{ info.leaveSiteTime || '- -' }}</view>
       </view>
     </view>
   </view>
