@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/home/home",
+    "pages/sign/sign",
     "pages/transportOrder/transportOrder",
     "pages/index/index",
     "pages/personal/personal",
-    "pages/home/home",
     "pages/feedbackDetail/feedbackDetail",
     "pages/order/order",
-    "pages/sign/sign",
     "pages/addFeedback/addFeedback",
     "pages/createOrder/createOrder",
     "pages/otherCar/otherCar",

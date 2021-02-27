@@ -156,7 +156,7 @@ Page({
     let ctx = wx.createCanvasContext(canvasName)
     this.setData({ ctx })
     var query = wx.createSelectorQuery()
-    query.select('.handCenter').boundingClientRect(rect => {
+    query.select('.handWriting').boundingClientRect(rect => {
       this.setData({
         canvasWidth: rect.width,
         canvasHeight: rect.height,
@@ -342,4 +342,7 @@ Page({
       },
     })
   },
+  cancel() {
+    wx.navigateBack()
+  }
 })

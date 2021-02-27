@@ -1,12 +1,8 @@
-<view class="wrapper">
+<view class="sign">
   <view class="handBtn">
-    <button catchtap="retDraw" class="delBtn">重写</button>
-    <button catchtap="subCanvas" class="subBtn">完成</button>
+    <van-icon color="#16D96C" name="replay" size="24" catchtap="retDraw" />
+    <van-button plain color="#16D96C" catchtap="cancel" class="cancel-btn">取消</van-button>
+    <van-button color="#16D96C" catchtap="subCanvas">确认</van-button>
   </view>
-  <view class="handCenter">
-    <canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting" />
-  </view>
-  <view class="handRight">
-    <view class="handTitle">手写板</view>
-  </view>
+  <canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting" />
 </view>
