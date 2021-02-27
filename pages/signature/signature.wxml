@@ -1,1 +1,32 @@
-<view class="signature">签收</view>
+<view class="signature">
+  <view class="card">
+    <view class="title">车辆信息</view>
+    <view class="item" wx:for="{{ labels }}" wx:key="index">
+      <view class="label">{{ item.label }}</view>
+      <view class="value">{{ result[item.key] }}</view>
+    </view>
+  </view>
+  <view class="box">
+    <view class="box-item">
+      <view class="title">
+        <view class="required">*</view>
+        填写签收方量
+      </view>
+      <view class="msg">准确填写实际签收的方量</view>
+      <view class="content">
+        <van-field type="number" class="field" border="{{ false }}" bind:change="changeValue" clearable />
+        <view class="unit">m³</view>
+      </view>
+    </view>
+    <view class="box-item">
+      <view class="title">备注</view>
+      <view class="msg">如需记录其他事项，可在此填写(非必填)</view>
+      <textarea maxlength="100" bindinput="change" />
+    </view>
+  </view>
+
+  <view class="footer">
+    <van-button plain color="#16D96C" class="plain" block bindtap="cancel">取消</van-button>
+    <van-button color="#16D96C" block class="btn" bindtap="goSign">签名签收</van-button>
+  </view>
+</view>

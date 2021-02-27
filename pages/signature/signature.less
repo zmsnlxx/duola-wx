@@ -1,4 +1,102 @@
 .signature {
   min-height: 100vh;
   background: #EDEDED;
+
+  .card {
+    padding: 24px 40px;
+    background: #FFFFFF;
+
+    .title {
+      font-size: 18px;
+      color: #000000;
+    }
+
+    .item {
+      margin-top: 16px;
+      display: flex;
+      font-size: 14px;
+
+      .label {
+        width: 80px;
+        line-height: 20px;
+        margin-right: 28px;
+        color: #6D6C6D;
+      }
+
+      .value {
+        color: #000000;
+      }
+    }
+  }
+
+  .box {
+    padding: 24px;
+
+    .box-item {
+      &:first-child {
+        margin-bottom: 24px;
+      }
+
+      .title {
+        display: flex;
+        color: #000000;
+        font-size: 16px;
+
+        .required {
+          color: #E02020;
+          margin-right: 5px;
+        }
+      }
+
+      .msg {
+        color: #6D6C6D;
+        font-size: 12px;
+        margin: 2px 0 9px;
+      }
+
+      .content {
+        display: flex;
+        line-height: 44px;
+
+        .unit {
+          width: 20px;
+          margin-left: 10px;
+        }
+
+        .field {
+          width: calc(100% - 30px);
+        }
+      }
+
+      textarea {
+        height: 80px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    left: 16px;
+    bottom: 10px;
+    width: calc(100% - 32px);
+    height: 44px;
+    display: flex;
+
+    .plain {
+      width: 72px;
+      margin-right: 8px;
+    }
+
+    .van-button--plain {
+      background: #EDEDED;
+    }
+
+    .btn {
+      width: calc(100% - 80px);
+    }
+  }
 }

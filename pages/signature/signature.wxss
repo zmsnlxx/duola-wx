@@ -2,3 +2,81 @@
   min-height: 100vh;
   background: #EDEDED;
 }
+.signature .card {
+  padding: 24px 40px;
+  background: #FFFFFF;
+}
+.signature .card .title {
+  font-size: 18px;
+  color: #000000;
+}
+.signature .card .item {
+  margin-top: 16px;
+  display: flex;
+  font-size: 14px;
+}
+.signature .card .item .label {
+  width: 80px;
+  line-height: 20px;
+  margin-right: 28px;
+  color: #6D6C6D;
+}
+.signature .card .item .value {
+  color: #000000;
+}
+.signature .box {
+  padding: 24px;
+}
+.signature .box .box-item:first-child {
+  margin-bottom: 24px;
+}
+.signature .box .box-item .title {
+  display: flex;
+  color: #000000;
+  font-size: 16px;
+}
+.signature .box .box-item .title .required {
+  color: #E02020;
+  margin-right: 5px;
+}
+.signature .box .box-item .msg {
+  color: #6D6C6D;
+  font-size: 12px;
+  margin: 2px 0 9px;
+}
+.signature .box .box-item .content {
+  display: flex;
+  line-height: 44px;
+}
+.signature .box .box-item .content .unit {
+  width: 20px;
+  margin-left: 10px;
+}
+.signature .box .box-item .content .field {
+  width: calc(100% - 30px);
+}
+.signature .box .box-item textarea {
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.signature .footer {
+  position: absolute;
+  left: 16px;
+  bottom: 10px;
+  width: calc(100% - 32px);
+  height: 44px;
+  display: flex;
+}
+.signature .footer .plain {
+  width: 72px;
+  margin-right: 8px;
+}
+.signature .footer .van-button--plain {
+  background: #EDEDED;
+}
+.signature .footer .btn {
+  width: calc(100% - 80px);
+}
