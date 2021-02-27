@@ -12,19 +12,9 @@ Component({
     transOrderStatus,
   },
   methods: {
-    clickTag(e) {
-      let index = e.currentTarget.dataset.index
-
-      if (index === this.data.activeIndex) {
-        return false
-      }
-      let pagePath = this.data.tabs[index].path
-      wx.switchTab({
-        url: pagePath,
-      })
-    },
-    publish() {
-      wx.navigateTo({ url: '/pages/createOrder/createOrder' })
-    },
+    jumpDetail() {
+      console.log(this.data.info)
+      wx.navigateTo({ url: `/pages/transportOrder/transportOrder?id=${this.data.info.id}` })
+    }
   },
 })

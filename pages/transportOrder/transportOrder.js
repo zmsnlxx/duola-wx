@@ -1,18 +1,21 @@
-// pages/transportOrder/transportOrder.js
+import { ajax } from '../../utils/http'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    result: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id)
+    if (options.id) {
+      ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
+        console.log(res)
+      })
+    } else {
 
+    }
   },
 
   /**

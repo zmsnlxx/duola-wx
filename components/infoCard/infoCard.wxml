@@ -1,6 +1,6 @@
 <view class="info-card">
   <view class="title">{{ projectName }} | {{ info.carNo }}</view>
-  <view class="card">
+  <view class="card" bindtap="jumpDetail">
     <view class="top">
       <view class="header between-flex">
         <view class="car-no">{{ info.carNo }}</view>
