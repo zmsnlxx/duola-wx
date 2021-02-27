@@ -13,8 +13,8 @@ Component({
   },
   methods: {
     jumpDetail() {
-      console.log(this.data.info)
-      wx.navigateTo({ url: `/pages/transportOrder/transportOrder?id=${this.data.info.id}` })
+      const { transId, id } = this.data.info
+      wx.navigateTo({ url: `/pages/transportOrder/transportOrder?id=${transId || id }` })
     }
   },
 })

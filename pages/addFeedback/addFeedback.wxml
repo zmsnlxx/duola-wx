@@ -1,0 +1,28 @@
+<view class="add-feedback">
+  <view class="item">
+    <view class="title">工程</view>
+    <view class="msg">这是您需要反馈的工程</view>
+    <van-field center value="{{ params.projectName }}" disabled border="{{ false }}" />
+  </view>
+  <view class="item">
+    <view class="title">上传照片</view>
+    <view class="msg">拍摄您需要投诉建议的照片在此上传</view>
+    <van-uploader file-list="{{ fileList }}" max-count="{{ 9 }}" accept="image" bind:delete="deleteImg" multiple="{{true}}" bind:after-read="afterRead">
+      <view class="upload">
+        <van-icon name="add" color="#eeeeee" size="16" />
+      </view>
+    </van-uploader>
+  </view>
+  <view class="item">
+    <view class="title">投诉建议</view>
+    <view class="msg">请将您的意见和建议填写在下方，100字以内</view>
+    <textarea maxlength="100" bindinput="change" />
+  </view>
+
+  <view class="footer">
+    <van-button color="#16D96C" plain block class="btn" bindtap="cancel">取消</van-button>
+    <van-button color="#16D96C" bindtap="submit" class="submit-btn" block>提交</van-button>
+  </view>
+</view>
+<van-toast id="van-toast" />
+

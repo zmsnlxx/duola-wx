@@ -2,3 +2,25 @@
   min-height: 100vh;
   background: #EDEDED;
 }
+.change-project .box {
+  width: 100%;
+  padding: 24px;
+  background: #FFFFFF;
+}
+.change-project .box .label {
+  display: flex;
+  width: calc(100% - 48px);
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.change-project .box .label .text {
+  color: #6D6C6D;
+}
+.change-project .box .label .status {
+  color: #596384;
+}
+.change-project .box .value {
+  font-size: 16px;
+  color: #000000;
+}

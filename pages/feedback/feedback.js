@@ -30,10 +30,10 @@ Page({
     ]
   },
   onLoad: function () {
-    const user = wx.getStorageSync('user');
-    // ajax('wxController/onlineOrderList', { startPage: 1, pageSize: 999, userId: user.uId }).then(res => {
-    //   console.log(res)
-    // })
+    const { uId } = wx.getStorageSync('user');
+    ajax('/wxController/feedbackList', { startPage: 1, pageSize: 999, userId: uId }).then(res => {
+      console.log(res)
+    })
   },
   goDetail (e) {
     wx.navigateTo({ url: `/pages/feedbackDetail/feedbackDetail?id=${e.currentTarget.dataset.id}` })

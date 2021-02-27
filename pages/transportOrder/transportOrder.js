@@ -10,7 +10,7 @@ Page({
   onLoad: function (options) {
     console.log(options.id)
     if (options.id) {
-      ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
+      ajax('/wxController/getLogsByTransId', { transId: options.id }).then(res => {
         console.log(res)
       })
     } else {

@@ -11,3 +11,7 @@
   </view>
   <custom-tabbar class="custom-tabbar" activeIndex='1' />
 </view>
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 100px;" bind:close="onClose">
+  <view class="item van-hairline--bottom" bindtap="goFeedback">投诉建议</view>
+  <view class="item" bindtap="call">400-4000-400</view>
+</van-popup>

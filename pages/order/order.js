@@ -7,8 +7,8 @@ Page({
     examineStatus
   },
   onLoad: function () {
-    const user = wx.getStorageSync('user');
-    ajax('/wxController/onlineOrderList', { startPage: 1, pageSize: 999, userId: user.uId }).then(res => {
+    const { uId } = wx.getStorageSync('user');
+    ajax('/wxController/onlineOrderList', { startPage: 1, pageSize: 999, userId: uId, type: 0 }).then(res => {
       console.log(res)
       this.setData({ list: res.list })
     })

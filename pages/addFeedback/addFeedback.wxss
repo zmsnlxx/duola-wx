@@ -1,0 +1,55 @@
+.add-feedback {
+  min-height: 100vh;
+  background: #EDEDED;
+  padding: 0 24px;
+}
+.add-feedback .item {
+  padding-top: 24px;
+}
+.add-feedback .item .title {
+  color: #000000;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+.add-feedback .item .msg {
+  color: #6D6C6D;
+  font-size: 12px;
+  line-height: 17px;
+  margin-bottom: 9px;
+}
+.add-feedback .item .van-cell {
+  height: 50px;
+  border-radius: 8px;
+}
+.add-feedback .item .upload {
+  width: 140px;
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 80px;
+}
+.add-feedback .item textarea {
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+.add-feedback .footer {
+  width: calc(100% - 48px);
+  position: fixed;
+  left: 24px;
+  bottom: 32px;
+  display: flex;
+}
+.add-feedback .footer .btn {
+  width: 72px;
+  margin-right: 8px;
+}
+.add-feedback .footer .van-button--plain {
+  background: #EDEDED;
+}
+.add-feedback .footer .submit-btn {
+  width: calc(100% - 80px);
+}

@@ -41,3 +41,10 @@
   left: 0;
   width: 100%;
 }
+.item {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+}
