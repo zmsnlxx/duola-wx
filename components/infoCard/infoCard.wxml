@@ -1,6 +1,6 @@
 <view class="info-card">
   <view class="title">{{ projectName }} | {{ info.carNo }}</view>
-  <view class="card" bindtap="jumpDetail">
+  <view class="card" catchtap="jumpDetail">
     <view class="top">
       <view class="header between-flex">
         <view class="car-no">{{ info.carNo }}</view>
@@ -17,7 +17,7 @@
             <view class="value">13m³</view>
           </view>
         </view>
-        <van-button wx:if="{{ info.status === 4 }}" color="#16D96C" class="btn" block round>签收</van-button>
+        <van-button wx:if="{{ info.status === 4 }}" color="#16D96C" class="btn" catchtap="sign" block round>签收</van-button>
       </view>
     </view>
     <view class="bottom">

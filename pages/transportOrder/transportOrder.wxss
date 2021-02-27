@@ -2,3 +2,56 @@
   min-height: 100vh;
   background: #EDEDED;
 }
+.transport-order .content {
+  background: #FFFFFF;
+  padding: 0 24px;
+}
+.transport-order .content .title {
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 22px;
+}
+.transport-order .content .title .car {
+  color: #000000;
+  font-size: 16px;
+}
+.transport-order .content .title .status {
+  color: #596384;
+  font-size: 14px;
+}
+.transport-order .content .box {
+  padding: 16px 0;
+  display: flex;
+}
+.transport-order .content .box .item {
+  width: 50%;
+  text-align: center;
+}
+.transport-order .content .box .item .label {
+  margin-bottom: 6px;
+  color: #6D6C6D;
+  font-size: 12px;
+}
+.transport-order .content .box .item .value {
+  font-size: 20px;
+  color: #000000;
+}
+.transport-order .step {
+  margin-top: 10px;
+}
+.transport-order .step .van-step__wrapper {
+  padding: 0 40px;
+}
+.transport-order .footer {
+  position: absolute;
+  bottom: 30px;
+  left: 16px;
+  width: calc(100% - 32px);
+}
+.transport-order .footer .msg {
+  color: #9EA4BA;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 16px;
+}

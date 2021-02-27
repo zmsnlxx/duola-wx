@@ -1,4 +1,69 @@
 .transport-order {
   min-height: 100vh;
   background: #EDEDED;
+
+  .content {
+    background: #FFFFFF;
+    padding: 0 24px;
+
+    .title {
+      padding: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      line-height: 22px;
+
+      .car {
+        color: #000000;
+        font-size: 16px;
+      }
+
+      .status {
+        color: #596384;
+        font-size: 14px;
+      }
+    }
+
+    .box {
+      padding: 16px 0;
+      display: flex;
+
+      .item {
+        width: 50%;
+        text-align: center;
+
+        .label {
+          margin-bottom: 6px;
+          color: #6D6C6D;
+          font-size: 12px;
+        }
+
+        .value {
+          font-size: 20px;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .step {
+    margin-top: 10px;
+
+    .van-step__wrapper {
+      padding: 0 40px;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 30px;
+    left: 16px;
+    width: calc(100% - 32px);
+
+    .msg {
+      color: #9EA4BA;
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
 }

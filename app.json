@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/transportOrder/transportOrder",
+    "pages/index/index",
     "pages/personal/personal",
     "pages/home/home",
-    "pages/index/index",
     "pages/feedbackDetail/feedbackDetail",
     "pages/order/order",
     "pages/sign/sign",
@@ -12,7 +13,6 @@
     "pages/orderDetail/orderDetail",
     "pages/signature/signature",
     "pages/feedback/feedback",
-    "pages/transportOrder/transportOrder",
     "pages/login/login",
     "pages/register/register",
     "pages/changeProject/changeProject"
@@ -49,7 +49,8 @@
     "van-dropdown-menu": "/miniprogram_npm/@vant/weapp/dropdown-menu/index",
     "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index",
     "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
-    "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index"
+    "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
+    "van-steps": "/miniprogram_npm/@vant/weapp/steps/index"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",
