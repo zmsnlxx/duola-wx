@@ -1,1 +1,46 @@
-<view class="feedback-detail">反馈详情</view>
+<view class="feedback-detail">
+  <view class="card">
+    <view class="title">
+      <view class="text">反馈信息</view>
+      <view class="status {{ result.answer ? 'active' : '' }}">{{ result.answer ? '已回复' : '处理中' }}</view>
+    </view>
+    <view class="item">
+      <view class="label">工程名称</view>
+      <view class="value">{{ result.projectName }}</view>
+    </view>
+    <view class="item">
+      <view class="label">提交时间</view>
+      <view class="value">{{ result.addTime }}</view>
+    </view>
+    <view class="box">
+      <view class="label">投诉建议</view>
+      <view class="value top">{{ result.remark }}</view>
+    </view>
+    <view class="box">
+      <view class="label">照片</view>
+      <view class="top">
+        <image wx:for="{{ result.userPhotos }}" wx:key="index" src="{{ item }}" />
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{ result.answer }}" class="card">
+    <view class="title">
+      <view class="text">回复信息</view>
+    </view>
+    <view class="item">
+      <view class="label">回复时间</view>
+      <view class="value">{{ result.answer.addTime }}</view>
+    </view>
+    <view class="box">
+      <view class="label">回复内容</view>
+      <view class="value top">{{ result.answer.remark }}</view>
+    </view>
+    <view class="box">
+      <view class="label">照片</view>
+      <view class="top">
+        <image wx:for="{{ result.answer.userPhotos }}" wx:key="index" src="{{ item }}" />
+      </view>
+    </view>
+  </view>
+</view>

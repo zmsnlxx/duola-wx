@@ -6,26 +6,25 @@ Page({
       {
         addTime: '2020/08/09 13:00',
         examineStatus: '0',
-        examineStatusStr: '审核中',
+        examineStatusStr: '处理中',
         id: '0',
-        part: '1楼地基',
         projectName: '火车站地块A',
+        remark: '啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
+        userPhoto: 'https://cdn.fledchina.com/wx9c6810500b31e6bb.o6zAJs5EpeQM-BYlmtOyhOdjhx2U.luRQgy1sz2jnc1ca833cb44c6d166e2e494f24755721.jpeg'
       },
       {
         addTime: '2020/08/09 13:00',
         examineStatus: '1',
-        examineStatusStr: '审核通过',
+        examineStatusStr: '已回复',
         id: '1',
-        part: '1楼地基',
         projectName: '火车站地块A',
-      },
-      {
-        addTime: '2020/08/09 13:00',
-        examineStatus: '2',
-        examineStatusStr: '审核拒绝',
-        id: '2',
-        part: '1楼地基',
-        projectName: '火车站地块A',
+        remark: '啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
+        userPhoto: 'https://cdn.fledchina.com/wx9c6810500b31e6bb.o6zAJs5EpeQM-BYlmtOyhOdjhx2U.luRQgy1sz2jnc1ca833cb44c6d166e2e494f24755721.jpeg',
+        answer: {
+          addTime: '2020/08/09 13:00',
+          remark: '啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
+          userPhoto: 'https://cdn.fledchina.com/wx9c6810500b31e6bb.o6zAJs5EpeQM-BYlmtOyhOdjhx2U.luRQgy1sz2jnc1ca833cb44c6d166e2e494f24755721.jpeg,https://cdn.fledchina.com/wx9c6810500b31e6bb.o6zAJs5EpeQM-BYlmtOyhOdjhx2U.ZBnQJc9mDrt8c1ca833cb44c6d166e2e494f24755721.jpeg',
+        }
       },
     ]
   },

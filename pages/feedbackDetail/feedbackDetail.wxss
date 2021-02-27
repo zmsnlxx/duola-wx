@@ -2,3 +2,57 @@
   min-height: 100vh;
   background: #EDEDED;
 }
+.feedback-detail .card {
+  background: #FFFFFF;
+  padding: 24px 40px;
+  margin-bottom: 8px;
+}
+.feedback-detail .card .title {
+  display: flex;
+  justify-content: space-between;
+  line-height: 25px;
+}
+.feedback-detail .card .title .text {
+  color: #000000;
+  font-size: 18px;
+}
+.feedback-detail .card .title .status {
+  font-size: 14px;
+  color: #596384;
+}
+.feedback-detail .card .title .status.active {
+  color: #16D96C;
+}
+.feedback-detail .card .label {
+  color: #6D6C6D;
+  font-size: 14px;
+  width: 80px;
+  margin-right: 24px;
+  line-height: 20px;
+}
+.feedback-detail .card .value {
+  color: #000000;
+  font-size: 14px;
+  line-height: 20px;
+}
+.feedback-detail .card .item {
+  display: flex;
+  margin-top: 16px;
+}
+.feedback-detail .card .box {
+  margin-top: 16px;
+}
+.feedback-detail .card .box .top {
+  margin-top: 8px;
+}
+.feedback-detail .card .box .top image {
+  display: inline-block;
+  width: 140px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+.feedback-detail .card .box .top image:nth-child(2n + 1) {
+  margin-right: 10px;
+}

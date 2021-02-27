@@ -1,4 +1,70 @@
 .feedback-detail {
   min-height: 100vh;
   background: #EDEDED;
+
+  .card {
+    background: #FFFFFF;
+    padding: 24px 40px;
+    margin-bottom: 8px;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      line-height: 25px;
+
+      .text {
+        color: #000000;
+        font-size: 18px;
+      }
+
+      .status {
+        font-size: 14px;
+        color: #596384;
+
+        &.active {
+          color: #16D96C;
+        }
+      }
+    }
+
+    .label {
+      color: #6D6C6D;
+      font-size: 14px;
+      width: 80px;
+      margin-right: 24px;
+      line-height: 20px;
+    }
+
+    .value {
+      color: #000000;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .item {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    .box {
+      margin-top: 16px;
+
+      .top {
+        margin-top: 8px;
+
+        image {
+          display: inline-block;
+          width: 140px;
+          height: 80px;
+          border-radius: 8px;
+          object-fit: cover;
+          margin-bottom: 5px;
+
+          &:nth-child(2n + 1) {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
 }
