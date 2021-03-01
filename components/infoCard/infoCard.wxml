@@ -1,5 +1,5 @@
 <view class="info-card">
-  <view class="title">{{ projectName }} | {{ info.carNo }}</view>
+  <view class="title">{{ projectName }} | {{ info.part }}</view>
   <view class="card" catchtap="jumpDetail">
     <view class="top">
       <view class="header between-flex">

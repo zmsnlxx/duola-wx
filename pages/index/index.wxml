@@ -1,6 +1,6 @@
 <view class="home">
   <view class="header">
-    <view class="scan">
+    <view class="scan" bindtap="scanCode">
       <van-icon name="scan" size="40" color="#FFFFFF" />
       <view>扫码签收</view>
     </view>
@@ -35,3 +35,4 @@
   </view>
   <custom-tabbar class="custom-tabbar" activeIndex='0' />
 </view>
+<van-toast id="van-toast" />

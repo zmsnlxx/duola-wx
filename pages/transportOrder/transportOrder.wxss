@@ -37,11 +37,66 @@
   font-size: 20px;
   color: #000000;
 }
-.transport-order .step {
-  margin-top: 10px;
+.transport-order .steps {
+  padding: 24px 36px;
 }
-.transport-order .step .van-step__wrapper {
-  padding: 0 40px;
+.transport-order .steps .steps-item {
+  display: flex;
+  --left-color: #999999;
+  --right-color: #6D6C6D;
+  --icon-color: #999999;
+}
+.transport-order .steps .steps-item.active {
+  --left-color: #000000;
+  --right-color: #000000;
+  --icon-color: #16D96C;
+}
+.transport-order .steps .steps-item .left {
+  height: 37px;
+  padding: 0 15px 14px 0;
+  color: var(--left-color);
+  border-right: 1px solid #D8D8D8;
+  text-align: right;
+  width: 90px;
+  position: relative;
+}
+.transport-order .steps .steps-item .left::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--icon-color);
+  border-radius: 50% 50%;
+  position: absolute;
+  right: -3.5px;
+  top: 7px;
+}
+.transport-order .steps .steps-item .left .hour {
+  height: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.transport-order .steps .steps-item .left .time {
+  height: 14px;
+  line-height: 14px;
+  font-weight: 400;
+  font-size: 10px;
+  color: #999999;
+}
+.transport-order .steps .steps-item .right {
+  height: 37px;
+  color: var(--right-color);
+  padding: 0 0 14px 15px;
+}
+.transport-order .steps .steps-item .right .status {
+  line-height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.transport-order .steps .steps-item .right .msg {
+  line-height: 17px;
+  font-weight: 400;
+  font-size: 12px;
 }
 .transport-order .footer {
   position: absolute;
@@ -53,5 +108,7 @@
   color: #9EA4BA;
   font-size: 12px;
   text-align: center;
-  margin-bottom: 16px;
+}
+.transport-order .footer .van-button {
+  margin-top: 16px;
 }

@@ -30,7 +30,7 @@ Page({
   },
   onLoad: function () {
     const { uId } = wx.getStorageSync('user');
-    ajax('/wxController/feedbackList', { startPage: 1, pageSize: 999, userId: uId }).then(res => {
+    ajax('/wxController/feedbackList', { startPage: 1, pageSize: 10, userId: uId }).then(res => {
       console.log(res)
     })
   },

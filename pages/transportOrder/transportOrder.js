@@ -1,33 +1,33 @@
 import { ajax } from '../../utils/http'
+import { transOrderStatus } from '../../utils/constant'
 
 Page({
   data: {
     result: {},
-    steps: [
-      { text: '步骤四', desc: '描述信息' },
-      { text: '步骤一', desc: '描述信息' },
-      { text: '步骤二', desc: '描述信息' },
-      { text: '步骤三', desc: '描述信息' },
-    ],
-    active: 0
+    steps: [],
+    active: 0,
+    id: '',
+    transOrderStatus
   },
 
   onLoad: function (options) {
-    console.log(options.id)
     if (options.id) {
+      this.setData({ id: options.id })
       ajax('/wxController/getLogsByTransId', { transId: options.id }).then(res => {
-        console.log(res)
+        const steps = res.map(item => ({ status: transOrderStatus[item.status], siteName: item.siteName, date: item.time.split(' ')[0], hour: item.time.split(' ')[1].slice(0,5) }))
+        this.setData({ steps })
       })
-    } else {
-
+      ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
+        this.setData({ result: res })
+      })
     }
   },
 
   goSign() {
-    wx.navigateTo({ url: '/pages/signature/signature' })
+    wx.navigateTo({ url: `/pages/signature/signature?id=${this.data.id}` })
   },
 
   goFeedback() {
-    wx.navigateTo({ url: '/pages/addFeedback/addFeedback' })
+    wx.navigateTo({ url: `/pages/addFeedback/addFeedback?id=${this.data.id}` })
   }
 })

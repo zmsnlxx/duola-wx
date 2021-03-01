@@ -1,4 +1,5 @@
 import { ajax } from '../../utils/http'
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 Page({
   data: {
@@ -29,5 +30,16 @@ Page({
   },
   jump() {
     wx.navigateTo({ url: '/pages/otherCar/otherCar' })
-  }
+  },
+  scanCode() {
+    wx.scanCode({
+      onlyFromCamera: true,
+      success(res) {
+        wx.navigateTo({ url: `/${res.path}` })
+      },
+      fail() {
+        Toast({ type: 'fail', context: this, message: '扫码失败' })
+      }
+    })
+  },
 })

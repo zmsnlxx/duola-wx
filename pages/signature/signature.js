@@ -1,26 +1,30 @@
+import { ajax } from '../../utils/http'
+import { transOrderStatus } from '../../utils/constant'
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
+
 Page({
   data: {
     labels: [
-      { label: '运输方量', key: 'capacity' },
+      { label: '运输方量', key: 'total' },
       { label: '车牌', key: 'carNo' },
       { label: '司机', key: 'driverName' },
       { label: '收货单位', key: 'projectName' },
       { label: '物料名称', key: 'goodsName' },
     ],
-    result: {
-      projectName: '我是收货单位名称',
-      goodsName: 'C40',
-      driverName: '金闪闪',
-      carNo: '甘E09870',
-      capacity: '16m³',
-    },
+    result: {},
     params: {
       remark: '',
       volume: ''
     }
   },
   onLoad: function (options) {
-
+    if (options.id) {
+      this.setData({ id: options.id })
+      ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
+        console.log(res)
+        this.setData({ result: res })
+      })
+    }
   },
 
   cancel() {
@@ -33,7 +37,8 @@ Page({
     this.setData({ 'params.remark': e.detail.value })
   },
   goSign() {
-    console.log(this.data.params)
-    wx.navigateTo({ url: '/pages/sign/sign' })
+    const { remark, volume } = this.data.params
+    if (!volume) return Toask.fail('请填写签收方量')
+    wx.navigateTo({ url: `/pages/sign/sign?remark=${remark}&volume=${volume}` })
   }
 })

@@ -30,3 +30,5 @@
     <van-button color="#16D96C" block class="btn" bindtap="goSign">签名签收</van-button>
   </view>
 </view>
+
+<van-toast id="van-toast" />

@@ -12,6 +12,7 @@ function ajax(url, data, method, otherToken) {
       header,
       method: method || 'get',
       success: function (obj) {
+        console.log(obj)
         if (obj.statusCode === 200) {
           if (obj.data.code === 200) {
             resolve(obj.data.data)

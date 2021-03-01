@@ -53,7 +53,7 @@ Page({
     if (!userPhoto) return Toast.fail('请上传图片')
     if (!remark) return Toast.fail('请填写意见')
 
-    ajax('/wxController/feedbackAdd', { feedbackAddDto: this.data.params }, 'post').then(res => {
+    ajax('/wxController/feedbackAdd', this.data.params, 'post').then(res => {
       Toast({
         type: 'success',
         message: '提交成功！',

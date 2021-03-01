@@ -1,25 +1,35 @@
 <view class="transport-order">
   <view class="content">
     <view class="title van-hairline--bottom">
-      <view class="car">甘E98627</view>
-      <view class="status">到达工地</view>
+      <view class="car">{{ result.carNo }}</view>
+      <view class="status">{{ transOrderStatus[result.status] }}</view>
     </view>
     <view class="box">
       <view class="item">
         <view class="label">发货 (m³) </view>
-        <view class="value">16</view>
+        <view class="value">{{ result.total || '- -' }}</view>
       </view>
       <view class="item">
         <view class="label">签收 (m³)</view>
-        <view class="value">- -</view>
+        <view class="value">{{ result.sign || '- -' }}</view>
       </view>
     </view>
   </view>
-  <view class="step">
-    <van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-color="#16D96C" />
+
+  <view class="steps">
+    <view class="steps-item {{ index === 0 ? 'active' : '' }}" wx:for="{{ steps }}" wx:key="{{ index }}">
+      <view class="left">
+        <view class="hour">{{ item.hour }}</view>
+        <view class="time">{{ item.date }}</view>
+      </view>
+      <view class="right">
+        <view class="status">{{ item.status }}</view>
+        <view class="msg">{{ item.siteName }}</view>
+      </view>
+    </view>
   </view>
   <view class="footer">
     <view class="msg" bindtap="goFeedback">点击此处对该单进行投诉建议</view>
-    <van-button bindtap="goSign" block color="#16D96C">签收</van-button>
+    <van-button wx:if="{{ result.status === 4 }}" bindtap="goSign" block color="#16D96C">签收</van-button>
   </view>
 </view>
