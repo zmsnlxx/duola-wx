@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/personal/personal",
-    "pages/feedback/feedback",
     "pages/home/home",
     "pages/index/index",
+    "pages/personal/personal",
+    "pages/feedback/feedback",
     "pages/changeProject/changeProject",
     "pages/order/order",
     "pages/sign/sign",
