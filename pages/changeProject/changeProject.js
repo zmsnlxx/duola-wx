@@ -45,6 +45,7 @@ Page({
     this.setData({ list: [], 'params.startPage': 1 })
   },
   changeProject() {
+    if (!this.data.remark) return Toast.fail('请填写您需要加入的工程')
     ajax('/wxController/projectChange', { remark: this.data.remark }, 'post').then(() => {
       Toast.success('提交成功')
       this.resetList()
