@@ -25,7 +25,6 @@ Page({
   getList() {
     ajax('/wxController/changeProjectList', this.data.params).then(res => {
       this.setData({ list: this.data.list.concat(res) })
-      console.log(this.data.list)
     })
   },
   changeStatus(e) {
@@ -38,6 +37,9 @@ Page({
   resetList() {
     this.setData({ list: [], 'params.startPage': 1 })
     this.getList()
+  },
+  onHide() {
+    this.setData({ list: [], 'params.startPage': 1 })
   },
   changeProject() {
     ajax('/wxController/projectChange', { remark: this.data.remark }, 'post').then(() => {

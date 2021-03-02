@@ -34,5 +34,8 @@ Page({
   },
   goDetail (e) {
     wx.navigateTo({ url: `/pages/orderDetail/orderDetail?id=${e.currentTarget.dataset.id}` })
+  },
+  onHide() {
+    this.setData({ list: [], 'params.startPage': 1 })
   }
 })

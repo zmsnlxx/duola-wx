@@ -28,9 +28,6 @@
 .feedback .item .title .success {
   color: #16D96C;
 }
-.feedback .item .title .error {
-  color: #F67272;
-}
 .feedback .item .part {
   margin-bottom: 16px;
   color: #999999;
