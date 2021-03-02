@@ -28,6 +28,6 @@ Page({
   },
 
   goFeedback() {
-    wx.navigateTo({ url: `/pages/addFeedback/addFeedback?id=${this.data.id}` })
+    wx.navigateTo({ url: `/pages/addFeedback/addFeedback?transId=${this.data.id}` })
   }
 })

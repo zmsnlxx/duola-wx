@@ -8,12 +8,16 @@ Page({
       projectName: '' ,
       remark: '' ,
       userPhoto: '',
+      transId: '',
     },
     fileList: [],
   },
-  onLoad() {
+  onLoad(options) {
     const { projectId, projectName } = wx.getStorageSync('user')
     this.setData({ 'params.projectId': projectId, 'params.projectName': projectName })
+    if (options.transId) {
+      this.setData({ 'params.transId': options.transId })
+    }
   },
   deleteImg(e) {
     const delIndex = e.detail.index

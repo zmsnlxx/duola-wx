@@ -1,5 +1,4 @@
 import { ajax } from '../../utils/http'
-const QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
 
 Page({
   data: {
@@ -8,7 +7,7 @@ Page({
     longitude: '',
     markers: [],
   },
-  onLoad() {
+  onShow() {
     const that = this
     const { projectId } = wx.getStorageSync('user')
 
