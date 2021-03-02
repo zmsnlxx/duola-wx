@@ -6,17 +6,18 @@ Page({
       { label: '我的反馈', path: '/pages/feedback/feedback', value: '' },
       { label: '联系我们', path: '', value: '' },
     ],
-    show: false
+    show: false,
+    user: {}
   },
   onShow() {
-    const { projectName } = wx.getStorageSync('user')
+    const user = wx.getStorageSync('user')
     const labels = this.data.labels
     labels.forEach((item, index) => {
       if (index === 0) {
-        item.value = projectName
+        item.value = user.projectName
       }
     })
-    this.setData({ labels })
+    this.setData({ labels, user })
   },
   jump(e) {
     if (e.currentTarget.dataset.path) {

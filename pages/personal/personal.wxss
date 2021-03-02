@@ -16,6 +16,28 @@
   box-sizing: border-box;
   display: flex;
 }
+.personal .user-card .head-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 60px;
+}
+.personal .user-card .info {
+  color: #000000;
+}
+.personal .user-card .info .name {
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.personal .user-card .info .tel {
+  line-height: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
 .personal .box {
   width: calc(100% - 32px);
   margin: 0 auto;

@@ -1,7 +1,16 @@
 <view class="personal">
   <view class="header" />
   <view class="user-card">
-<!--    <van-image src="" />-->
+    <view class="head-img">
+      <open-data type="userAvatarUrl" />
+    </view>
+    <view class="info">
+      <view class="name">{{ user.name }}</view>
+      <view class="tel">
+        <van-icon name="phone" size="16" />
+        {{ user.phone }}
+      </view>
+    </view>
   </view>
   <view class="box">
     <van-cell wx:for="{{ labels }}" bind:click="jump" data-path="{{ item.path }}" wx:key="index" center title="{{ item.label }}" is-link value="{{ item.value }}" border="{{ false }}" />
