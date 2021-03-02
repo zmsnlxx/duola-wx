@@ -27,17 +27,45 @@
     <van-button color="#16D96C" plain block class="btn" bindtap="cancel">取消</van-button>
     <van-button color="#16D96C" bindtap="submit" class="submit-btn" block>{{ isEdit ? '编辑' : '提交' }}</van-button>
   </view>
+
+  <van-popup show="{{ show.specialId }}" catchtouchmove="preventTouchMove" class="popup" position="bottom" custom-style="height: 50%" data-key="specialId" bind:close="close">
+    <view class="content">
+      <view class="header">
+        <view class="cancel" bindtap="close" data-key="specialId">取消</view>
+        <view class="title">请选择特殊需求</view>
+        <view class="confirm" bindtap="onCheckConfirm" data-key="specialId">确认</view>
+      </view>
+      <van-checkbox-group value="{{ result }}" bind:change="changeCheck">
+        <van-cell-group>
+          <van-cell
+            wx:for="{{ specialIds }}"
+            wx:key="index"
+            title="{{ item.text }}"
+            value-class="value-class"
+            clickable
+            data-index="{{ index }}"
+            bind:click="toggle"
+          >
+            <van-checkbox
+              checked-color="#16D96C"
+              catch:tap="noop"
+              class="checkboxes-{{ index }}"
+              name="{{ item.value }}"
+            />
+          </van-cell>
+        </van-cell-group>
+      </van-checkbox-group>
+    </view>
+  </van-popup>
+
+  <van-toast id="van-toast" />
+
+  <van-popup show="{{ show.wishTime }}" catchtouchmove="preventTouchMove" position="bottom" data-key="wishTime" bind:close="close">
+    <van-datetime-picker title="请选择期望时间" min-date="{{ minDate }}" show-toolbar data-key="wishTime" value="{{ form.wishTime }}" data-name="wishName" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+  </van-popup>
+
+  <van-popup show="{{ show.goodsId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="goodsId" bind:close="close">
+    <van-picker title="请选择需求标号" default-index="{{ index }}" data-key="goodsId" show-toolbar bind:cancel="close" bind:confirm="onConfirm" columns="{{ goodsIds }}" />
+  </van-popup>
 </view>
-<van-toast id="van-toast" />
-<van-popup show="{{ show.wishTime }}" catchtouchmove="preventTouchMove" position="bottom" data-key="wishTime" bind:close="close">
-  <van-datetime-picker title="请选择期望时间" min-date="{{ minDate }}" show-toolbar data-key="wishTime" value="{{ form.wishTime }}" data-name="wishName" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
-</van-popup>
-
-<van-popup show="{{ show.goodsId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="goodsId" bind:close="close">
-  <van-picker title="请选择需求标号" data-key="goodsId" show-toolbar bind:cancel="close" bind:confirm="onConfirm" columns="{{ goodsIds }}" />
-</van-popup>
-
-<van-popup show="{{ show.specialId }}" catchtouchmove="preventTouchMove" position="bottom" data-key="specialId" bind:close="close">
-  <van-picker title="请选择特殊要求" data-key="specialId" show-toolbar bind:cancel="close" bind:confirm="onConfirm" columns="{{ specialIds }}" />
-</van-popup>
 

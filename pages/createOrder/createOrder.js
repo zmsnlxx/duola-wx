@@ -19,7 +19,8 @@ Page({
     goodsIds: [],
     radio: '1',
     isEdit: false,
-    form: { goodsId: '', isPump: '1', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '', total: '', wishTime: '', },
+    id: '',
+    form: { goodsId: '', isPump: '1', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '94,95,97', total: '', wishTime: '', },
     show: { goodsId: false, specialId: false, wishTime: false },
     formatter(type, value) {
       if (type === 'year') {
@@ -29,6 +30,8 @@ Page({
       }
       return value
     },
+    index: 0,
+    result: [],
     name: { specialId: '请选择', goodsId: '请选择' },
   },
   onLoad: function (option) {
@@ -42,13 +45,26 @@ Page({
         arr.push({ text: item.goodsName, value: item.id })
       })
       this.setData({ specialIds, goodsIds })
+      wx.setStorageSync('specialIds', specialIds)
+      wx.setStorageSync('goodsIds', goodsIds)
     })
-    if (option.type === 'edit') {
+    if (option.id) {
       wx.setNavigationBarTitle({ title: '编辑订单' })
-      this.setData({ isEdit: true })
-      const currentOrder = wx.getStorageSync('currentOrder')
-      Object.keys(this.data.form).forEach(key => {
-        this.setData({ [`form.${key}`]: currentOrder[key] })
+      this.setData({ isEdit: true, id: option.id })
+      ajax('/wxController/onlineOrderInfo', { id: option.id }).then(res => {
+        const specialIds = wx.getStorageSync('specialIds')
+        const goodsIds = wx.getStorageSync('goodsIds')
+
+        const specialArr = specialIds.filter(item => res.specialId.split(',').includes(item.text))
+        const specialName = specialArr.map(item => item.text).join(',')
+
+        const goodsName = goodsIds.find(item => item.value === res.goodsId).text
+        const index = goodsIds.findIndex(item => item.value === res.goodsId)
+
+        this.setData({ 'name.goodsId': goodsName, 'name.specialId': specialName, result: res.specialId.split(','), index, radio: String(res.isPump) })
+        Object.keys(this.data.form).forEach(key => {
+          this.setData({ [`form.${key}`]: res[key] })
+        })
       })
     }
   },
@@ -77,8 +93,21 @@ Page({
     const { text, value } = e.detail.value
     this.setData({ [`form.${key}`]: value, [`show.${key}`]: false, [`name.${key}`]: text })
   },
+  onCheckConfirm() {
+    const currentSpecial = this.data.specialIds.filter(item => this.data.result.includes(String(item.value)))
+    const specialIdsName = currentSpecial.map(item => item.text)
+    this.setData({ 'form.specialId': this.data.result.join(','), 'name.specialId': specialIdsName.join(','), 'show.specialId': false })
+  },
   cancel() {
     wx.navigateBack()
+  },
+  changeCheck(e) {
+    this.setData({ result: e.detail });
+  },
+  toggle(event) {
+    const { index } = event.currentTarget.dataset;
+    const checkbox = this.selectComponent(`.checkboxes-${index}`);
+    checkbox.toggle();
   },
   submit () {
     const { projectAddress, part, slump, goodsId, total, wishTime } = this.data.form
@@ -90,7 +119,8 @@ Page({
     if (!wishTime) return Toast.fail('请选择期望时间')
 
     const api = this.data.isEdit ? '/wxController/onlineOrderEdit' : '/wxController/onlineOrderAdd'
-    ajax(api, this.data.form, 'post').then(() => {
+    const params = this.data.isEdit ? Object.assign({}, this.data.form, { id: this.data.id }) : this.data.form
+    ajax(api, params, 'post').then(() => {
       Toast({
         type: 'success',
         context: this,

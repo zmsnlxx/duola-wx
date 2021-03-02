@@ -15,22 +15,34 @@ Page({
       { label: '特殊要求', key: 'specialId' },
     ],
     examineStatus,
-    result: null
+    result: null,
+    id: '',
+    goodsIds: [],
+    specialIds: [],
+    goodsName: '',
+    specialName: '',
   },
   onLoad: function (options) {
-    console.log(options.id)
     if (options.id) {
-      ajax('/wxController/onlineOrderInfo', { id: options.id }).then(res => {
-        console.log(res)
-        this.setData({ result: res })
-      })
+      this.setData({ id: options.id })
     }
+  },
+  onShow() {
+    const goodsIds = wx.getStorageSync('goodsIds')
+    const specialIds = wx.getStorageSync('specialIds')
+    this.setData({ goodsIds, specialIds })
+    ajax('/wxController/onlineOrderInfo', { id: this.data.id }).then(res => {
+      const goodsName = goodsIds.find(item => item.value === res.goodsId).text
+      // TODO 更改筛选text => value
+      const specialArr = specialIds.filter(item => res.specialId.split(',').includes(item.text))
+      const specialName = specialArr.map(item => item.text).join(',')
+      this.setData({ result: res, goodsName, specialName })
+    })
   },
   cancel() {
     wx.navigateBack()
   },
   submit() {
-    wx.setStorageSync('currentOrder', this.data.result)
-    wx.navigateTo({ url: '/pages/createOrder/createOrder?type=edit' })
+    wx.navigateTo({ url: `/pages/createOrder/createOrder?id=${this.data.id}` })
   }
 })

@@ -16,10 +16,9 @@ Page({
     ],
     list: [],
   },
-  onLoad() {
+  onShow() {
     const { projectId } = wx.getStorageSync('user')
     ajax('/wxController/getTransOrderByProjectId', { projectId, startPage: 1, pageSize: 999 }).then(res => {
-      console.log(res)
       this.setData({ list: res.list })
     })
     ajax('/wxController/signCount', { id: projectId }).then(res => {

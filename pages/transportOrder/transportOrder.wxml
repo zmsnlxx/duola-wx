@@ -17,7 +17,7 @@
   </view>
 
   <view class="steps">
-    <view class="steps-item {{ index === 0 ? 'active' : '' }}" wx:for="{{ steps }}" wx:key="{{ index }}">
+    <view class="steps-item {{ index === 0 ? 'active' : '' }}" wx:for="{{ steps }}" wx:key="index">
       <view class="left">
         <view class="hour">{{ item.hour }}</view>
         <view class="time">{{ item.date }}</view>

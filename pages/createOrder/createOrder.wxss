@@ -49,3 +49,31 @@
 .create-order .footer .submit-btn {
   width: calc(100% - 80px);
 }
+.create-order .content {
+  width: 100%;
+  height: 100%;
+  padding-top: 44px;
+}
+.create-order .content .header {
+  height: 44px;
+  line-height: 44px;
+  display: flex;
+  background: #FFFFFF;
+  position: fixed;
+  top: 50%;
+  box-sizing: border-box;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+.create-order .content .header .cancel {
+  color: #969799;
+}
+.create-order .content .header .confirm {
+  color: #576b95;
+}
+.create-order .content .value-class {
+  flex: none !important;
+}

@@ -1,14 +1,14 @@
 {
   "pages":[
-    "pages/home/home",
-    "pages/sign/sign",
-    "pages/transportOrder/transportOrder",
-    "pages/index/index",
-    "pages/personal/personal",
-    "pages/feedbackDetail/feedbackDetail",
     "pages/order/order",
-    "pages/addFeedback/addFeedback",
+    "pages/personal/personal",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/sign/sign",
     "pages/createOrder/createOrder",
+    "pages/transportOrder/transportOrder",
+    "pages/feedbackDetail/feedbackDetail",
+    "pages/addFeedback/addFeedback",
     "pages/otherCar/otherCar",
     "pages/orderDetail/orderDetail",
     "pages/signature/signature",
@@ -50,7 +50,8 @@
     "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index",
     "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
     "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
-    "van-steps": "/miniprogram_npm/@vant/weapp/steps/index"
+    "van-checkbox": "/miniprogram_npm/@vant/weapp/checkbox/index",
+    "van-checkbox-group": "/miniprogram_npm/@vant/weapp/checkbox-group/index"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",
