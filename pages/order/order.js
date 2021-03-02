@@ -6,17 +6,17 @@ Page({
     list: [],
     examineStatus,
     params: {
-      projectId: '',
-      uId: '',
+      userId: '',
       type: 0,
       pageSize: 10,
       startPage: 1,
+      projectId: '',
     },
     total: 0,
   },
   onLoad: function () {
     const { uId, projectId } = wx.getStorageSync('user');
-    this.setData({ 'params.uId': uId, 'params.projectId': projectId })
+    this.setData({ 'params.userId': uId, 'params.projectId': projectId })
   },
   onShow() {
     this.getList()

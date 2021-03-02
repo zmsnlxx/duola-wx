@@ -5,7 +5,7 @@
     </view>
     <view class="value">{{ projectName }}</view>
   </view>
-  <view wx:if="{{ list[0].status !== 0 }}" class="change-box">
+  <view wx:if="{{ flag === 0 }}" class="change-box">
     <view class="change-title">更换工程</view>
     <view class="change-msg">请输入您需要加入的工程，以便审核</view>
     <van-field type="text" border="{{ false }}" placeholder="请输入" bind:change="changeValue" clearable />
@@ -23,11 +23,11 @@
       </view>
       <view wx:if="{{ item.status === 2 }}" class="error-box">
         <view class="error-title">拒绝理由</view>
-        <view class="error-content">拒绝理由</view>
+        <view class="error-content">{{ item.reason || '' }}</view>
       </view>
     </view>
   </view>
-  <view wx:if="{{ list[0].status !== 0 }}" class="footer">
+  <view wx:if="{{ flag === 0 }}" class="footer">
     <van-button block color="#16D96C" class="btn" bindtap="changeProject">提交审核</van-button>
   </view>
 </view>

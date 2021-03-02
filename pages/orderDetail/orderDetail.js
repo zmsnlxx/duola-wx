@@ -17,8 +17,6 @@ Page({
     examineStatus,
     result: null,
     id: '',
-    goodsIds: [],
-    specialIds: [],
     goodsName: '',
     specialName: '',
   },
@@ -28,15 +26,8 @@ Page({
     }
   },
   onShow() {
-    const goodsIds = wx.getStorageSync('goodsIds')
-    const specialIds = wx.getStorageSync('specialIds')
-    this.setData({ goodsIds, specialIds })
     ajax('/wxController/onlineOrderInfo', { id: this.data.id }).then(res => {
-      const goodsName = goodsIds.find(item => item.value === res.goodsId).text
-      // TODO 更改筛选text => value
-      const specialArr = specialIds.filter(item => res.specialId.split(',').includes(item.text))
-      const specialName = specialArr.map(item => item.text).join(',')
-      this.setData({ result: res, goodsName, specialName })
+      this.setData({ result: res, goodsName: res.goodsStr, specialName: res.specialIdStr })
     })
   },
   cancel() {

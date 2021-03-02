@@ -14,6 +14,8 @@ Page({
     },
     examineStatus,
     remark: '',
+    total: 0,
+    flag: 0
   },
   onLoad() {
     const { projectName, uId } = wx.getStorageSync('user')
@@ -24,7 +26,8 @@ Page({
   },
   getList() {
     ajax('/wxController/changeProjectList', this.data.params).then(res => {
-      this.setData({ list: this.data.list.concat(res) })
+      const { flag, total } = res
+      this.setData({ list: this.data.list.concat(res.list), total, flag })
     })
   },
   changeStatus(e) {

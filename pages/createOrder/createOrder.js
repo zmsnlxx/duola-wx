@@ -45,23 +45,13 @@ Page({
         arr.push({ text: item.goodsName, value: item.id })
       })
       this.setData({ specialIds, goodsIds })
-      wx.setStorageSync('specialIds', specialIds)
-      wx.setStorageSync('goodsIds', goodsIds)
     })
     if (option.id) {
       wx.setNavigationBarTitle({ title: '编辑订单' })
       this.setData({ isEdit: true, id: option.id })
       ajax('/wxController/onlineOrderInfo', { id: option.id }).then(res => {
-        const specialIds = wx.getStorageSync('specialIds')
-        const goodsIds = wx.getStorageSync('goodsIds')
-
-        const specialArr = specialIds.filter(item => res.specialId.split(',').includes(item.text))
-        const specialName = specialArr.map(item => item.text).join(',')
-
-        const goodsName = goodsIds.find(item => item.value === res.goodsId).text
-        const index = goodsIds.findIndex(item => item.value === res.goodsId)
-
-        this.setData({ 'name.goodsId': goodsName, 'name.specialId': specialName, result: res.specialId.split(','), index, radio: String(res.isPump) })
+        const index = this.data.goodsIds.findIndex(item => item.value === res.goodsId)
+        this.setData({ 'name.goodsId': res.goodsStr, 'name.specialId': res.specialIdStr, result: res.specialIds ? res.specialIds.split(',') : [], index, radio: String(res.isPump) })
         Object.keys(this.data.form).forEach(key => {
           this.setData({ [`form.${key}`]: res[key] })
         })

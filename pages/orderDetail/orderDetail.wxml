@@ -15,7 +15,7 @@
       <view class="value" wx:else>{{ result[item.key] }}</view>
     </view>
   </view>
-  <view wx:if="{{ result.examineStatus === 0 }}" class="footer">
+  <view wx:if="{{ result.examineStatus === 2 }}" class="footer">
     <van-button color="#16D96C" plain block class="btn" bindtap="cancel">取消</van-button>
     <van-button color="#16D96C" bindtap="submit" class="submit-btn" block>修改</van-button>
   </view>
