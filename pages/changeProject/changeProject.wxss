@@ -1,11 +1,14 @@
 .change-project {
   min-height: 100vh;
   background: #EDEDED;
+  padding-bottom: 92px;
+  position: relative;
 }
 .change-project .box {
   width: 100%;
   padding: 24px;
   background: #FFFFFF;
+  box-sizing: border-box;
 }
 .change-project .box .label {
   display: flex;
@@ -23,4 +26,94 @@
 .change-project .box .value {
   font-size: 16px;
   color: #000000;
+}
+.change-project .change-box {
+  padding: 24px 24px 0 24px;
+}
+.change-project .change-box .change-title {
+  color: #000000;
+  font-size: 16px;
+  line-height: 22px;
+}
+.change-project .change-box .change-msg {
+  color: #6D6C6D;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.change-project .change-box .van-cell {
+  border-radius: 8px;
+}
+.change-project .list {
+  padding-top: 40px;
+}
+.change-project .list .title {
+  margin: 0 0 8px 24px;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+}
+.change-project .list .item {
+  background: #FFFFFF;
+  padding: 16px 24px;
+}
+.change-project .list .item .flex {
+  display: flex;
+  justify-content: space-between;
+}
+.change-project .list .item .first-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.change-project .list .item .first-title .name {
+  color: #000000;
+  font-weight: 500;
+}
+.change-project .list .item .first-title .status {
+  color: #596384;
+  font-weight: 600;
+}
+.change-project .list .item .first-title .pending {
+  color: #596384;
+}
+.change-project .list .item .first-title .success {
+  color: #16D96C;
+}
+.change-project .list .item .first-title .error {
+  color: #F67272;
+}
+.change-project .list .item .second-title {
+  height: 20px;
+  line-height: 20px;
+}
+.change-project .list .item .second-title .time {
+  color: #6D6C6D;
+  font-size: 12px;
+}
+.change-project .list .item .second-title .van-button {
+  height: 20px;
+  font-size: 12px;
+}
+.change-project .list .item .error-box {
+  margin-top: 24px;
+  font-size: 14px;
+}
+.change-project .list .item .error-box .error-title {
+  color: #6D6C6D;
+  margin-bottom: 8px;
+}
+.change-project .list .item .error-box .error-content {
+  color: #000000;
+}
+.change-project .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 24px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.change-project .footer .btn {
+  height: 44px;
+  width: calc(100% - 32px);
 }

@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/order/order",
-    "pages/personal/personal",
     "pages/home/home",
     "pages/index/index",
+    "pages/changeProject/changeProject",
+    "pages/order/order",
+    "pages/personal/personal",
     "pages/sign/sign",
     "pages/createOrder/createOrder",
     "pages/transportOrder/transportOrder",
@@ -14,8 +15,7 @@
     "pages/signature/signature",
     "pages/feedback/feedback",
     "pages/login/login",
-    "pages/register/register",
-    "pages/changeProject/changeProject"
+    "pages/register/register"
   ],
   "window":{
     "backgroundTextStyle":"light",
