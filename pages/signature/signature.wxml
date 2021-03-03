@@ -6,7 +6,7 @@
       <view class="value">{{ result[item.key] }}</view>
     </view>
   </view>
-  <view class="box">
+  <view class="box" wx:if="{{ result.status === 4 }}">
     <view class="box-item">
       <view class="title">
         <view class="required">*</view>
@@ -25,7 +25,7 @@
     </view>
   </view>
 
-  <view class="footer">
+  <view class="footer" wx:if="{{ result.status === 4 }}">
     <van-button plain color="#16D96C" class="plain" block bindtap="cancel">取消</van-button>
     <van-button color="#16D96C" block class="btn" bindtap="goSign">签名签收</van-button>
   </view>

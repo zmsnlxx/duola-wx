@@ -23,6 +23,7 @@
 .info-card .card .text {
   color: #B1B1B1;
   margin-right: 10px;
+  font-weight: 600;
 }
 .info-card .card .value {
   color: #000000;
@@ -40,6 +41,7 @@
 }
 .info-card .card .top .header .status {
   color: #596384;
+  font-weight: 600;
 }
 .info-card .card .top .content {
   height: 20px;
