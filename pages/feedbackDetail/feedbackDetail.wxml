@@ -2,7 +2,7 @@
   <view class="card">
     <view class="title">
       <view class="text">反馈信息</view>
-      <view class="status {{ result.answer ? 'active' : '' }}">{{ result.answer ? '已回复' : '处理中' }}</view>
+      <view class="status {{ ['pending', 'pending', 'success'][item.processStatus] }}">{{ feedbackStatus[item.processStatus] }}</view>
     </view>
     <view class="item">
       <view class="label">工程名称</view>
@@ -24,22 +24,22 @@
     </view>
   </view>
 
-  <view wx:if="{{ result.answer }}" class="card">
+  <view wx:if="{{ result.status === 2 }}" class="card">
     <view class="title">
       <view class="text">回复信息</view>
     </view>
     <view class="item">
       <view class="label">回复时间</view>
-      <view class="value">{{ result.answer.addTime }}</view>
+      <view class="value">{{ result.processTime }}</view>
     </view>
     <view class="box">
       <view class="label">回复内容</view>
-      <view class="value top">{{ result.answer.remark }}</view>
+      <view class="value top">{{ result.reply }}</view>
     </view>
     <view class="box">
       <view class="label">照片</view>
       <view class="top">
-        <image wx:for="{{ result.answer.userPhotos }}" wx:key="index" src="{{ item }}" />
+        <image wx:for="{{ result.adminPhotos }}" wx:key="index" src="{{ item }}" />
       </view>
     </view>
   </view>

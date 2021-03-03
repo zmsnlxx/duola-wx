@@ -35,5 +35,10 @@ Page({
   },
   onHide() {
     this.setData({ list: [], 'params.startPage': 1 })
-  }
+  },
+  onPullDownRefresh() {
+    this.setData({ list: [], 'params.startPage': 1 })
+    this.getList()
+    wx.stopPullDownRefresh()
+  },
 })

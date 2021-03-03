@@ -35,6 +35,18 @@
 .create-order .item .radios .van-radio {
   margin-right: 30px;
 }
+.create-order .item .checkbox {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.create-order .item .checkbox .checkbox-item {
+  width: 50%;
+}
+.create-order .item .checkbox .checkbox-item .van-checkbox {
+  margin-bottom: 10px;
+}
 .create-order .footer {
   margin-top: 50px;
   display: flex;

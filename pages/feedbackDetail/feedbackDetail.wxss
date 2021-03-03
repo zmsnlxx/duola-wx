@@ -20,7 +20,10 @@
   font-size: 14px;
   color: #596384;
 }
-.feedback-detail .card .title .status.active {
+.feedback-detail .card .title .pending {
+  color: #596384;
+}
+.feedback-detail .card .title .success {
   color: #16D96C;
 }
 .feedback-detail .card .label {

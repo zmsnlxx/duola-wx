@@ -9,9 +9,10 @@ Page({
     if (options.id) {
       ajax('/wxController/complaintInfo', { id: options.id }).then(res => {
         res.userPhotos = res.userPhoto.split(',')
-        if (res.answer) {
-          res.answer.userPhotos = res.answer.userPhoto.split(',')
+        if (res.status === 2) {
+          res.adminPhotos = res.adminPhoto.split(',')
         }
+        console.log(res)
         this.setData({ id: options.id, result: res })
       })
     }

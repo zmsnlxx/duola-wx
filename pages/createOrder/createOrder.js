@@ -12,7 +12,7 @@ Page({
       { label: '需求方量', required: true, key: 'total', type: 'number', class: 'input' },
       { label: '期望时间', required: true, key: 'wishTime', class: 'time' },
       { label: '是否泵送', required: true, key: 'isPump', class: 'radio' },
-      { label: '特殊要求', key: 'specialId', class: 'select' },
+      { label: '特殊要求', key: 'specialId', class: 'checkbox',  },
     ],
     minDate: new Date().getTime(),
     specialIds: [],
@@ -32,7 +32,7 @@ Page({
     },
     index: 0,
     result: [],
-    name: { specialId: '请选择', goodsId: '请选择' },
+    name: { goodsId: '请选择' },
   },
   onLoad: function (option) {
     const { projectId, projectName } = wx.getStorageSync('user')
@@ -51,7 +51,7 @@ Page({
       this.setData({ isEdit: true, id: option.id })
       ajax('/wxController/onlineOrderInfo', { id: option.id }).then(res => {
         const index = this.data.goodsIds.findIndex(item => item.value === res.goodsId)
-        this.setData({ 'name.goodsId': res.goodsStr, 'name.specialId': res.specialIdStr, result: res.specialIds ? res.specialIds.split(',') : [], index, radio: String(res.isPump) })
+        this.setData({ 'name.goodsId': res.goodsStr, result: res.specialIds ? res.specialIds.split(',') : [], index, radio: String(res.isPump) })
         Object.keys(this.data.form).forEach(key => {
           this.setData({ [`form.${key}`]: res[key] })
         })
@@ -83,16 +83,11 @@ Page({
     const { text, value } = e.detail.value
     this.setData({ [`form.${key}`]: value, [`show.${key}`]: false, [`name.${key}`]: text })
   },
-  onCheckConfirm() {
-    const currentSpecial = this.data.specialIds.filter(item => this.data.result.includes(String(item.value)))
-    const specialIdsName = currentSpecial.map(item => item.text)
-    this.setData({ 'form.specialId': this.data.result.join(','), 'name.specialId': specialIdsName.join(','), 'show.specialId': false })
-  },
   cancel() {
     wx.navigateBack()
   },
   changeCheck(e) {
-    this.setData({ result: e.detail });
+    this.setData({ result: e.detail, 'form.specialId': e.detail.join(',') });
   },
   toggle(event) {
     const { index } = event.currentTarget.dataset;
