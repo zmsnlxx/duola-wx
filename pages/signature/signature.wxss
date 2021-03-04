@@ -23,6 +23,7 @@
   color: #6D6C6D;
 }
 .signature .card .item .value {
+  width: calc(100% - 108px);
   color: #000000;
 }
 .signature .box {

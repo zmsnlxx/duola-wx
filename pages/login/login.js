@@ -5,8 +5,8 @@ import { telephoneReg } from '../../utils/util'
 Page({
   data: {
     params: {
-      userName: '13567657786',
-      password: 'ddd'
+      userName: '',
+      password: ''
     }
   },
   onChange(e) {

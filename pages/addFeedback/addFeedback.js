@@ -27,7 +27,7 @@ Page({
   },
   afterRead(e) {
     const that = this
-    const { type, url } = e.detail.file[0]
+    const { url } = e.detail.file[0]
     wx.uploadFile({
       url: 'https://api.xinhuajian.com/upLoadPhoto',
       filePath: url,
@@ -40,8 +40,6 @@ Page({
           url: result.data,
           isImage: true,
           thumb: result.data
-          // isVideo: type === 'video',
-          // thumb: type === 'image' ? result.data : result.data + '?vframe/jpg/offset/1'
         })
         that.setData({ fileList })
       },
@@ -53,11 +51,10 @@ Page({
   },
   submit () {
     this.setData({ 'params.userPhoto': this.data.fileList.map(item => item.url).join(',') })
-    const { remark, userPhoto } = this.data.params
-    if (!userPhoto) return Toast.fail('请上传图片')
+    const { remark } = this.data.params
     if (!remark) return Toast.fail('请填写意见')
 
-    ajax('/wxController/feedbackAdd', this.data.params, 'post').then(res => {
+    ajax('/wxController/feedbackAdd', this.data.params, 'post').then(() => {
       Toast({
         type: 'success',
         message: '提交成功！',

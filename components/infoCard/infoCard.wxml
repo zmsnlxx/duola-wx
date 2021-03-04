@@ -4,17 +4,18 @@
     <view class="top">
       <view class="header between-flex">
         <view class="car-no">{{ info.carNo }}</view>
-        <view class="status">{{ transOrderStatus[info.status - 1] }}</view>
+        <view class="status">{{ info.statusStr }}</view>
       </view>
       <view class="content between-flex">
         <view class="items flex">
           <view class="item flex">
             <view class="text">发</view>
-            <view class="value">16m³</view>
+            <view class="value">{{ info.sendVolume }}m³</view>
           </view>
           <view class="item flex">
             <view class="text">签</view>
-            <view class="value">13m³</view>
+            <view class="value" wx:if="{{ info.sign }}">{{ info.sign }}m³</view>
+            <view class="value" wx:else="">-  -</view>
           </view>
         </view>
         <van-button wx:if="{{ info.status === 4 }}" color="#16D96C" class="btn" catchtap="sign" block round>签收</van-button>

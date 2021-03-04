@@ -29,6 +29,7 @@ Page({
   logout() {
     wx.removeStorageSync('token')
     wx.removeStorageSync('user')
+    wx.closeSocket()
     wx.navigateTo({ url: `/pages/login/login` })
   },
   onClose() {

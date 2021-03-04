@@ -1,4 +1,5 @@
 import { ajax } from '../../utils/http'
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 Page({
   data: {
@@ -24,6 +25,13 @@ Page({
     chirography: [], //笔迹
     currentChirography: {}, //当前笔迹
     linePrack: [], //划线轨迹 , 生成线条的实际点
+    params: {
+      remark: '',
+      volume: '',
+      transId: '',
+      userId: '',
+      sign: ''
+    }
   },
   // 笔迹开始
   uploadScaleStart(e) {
@@ -151,7 +159,10 @@ Page({
       currentLine: [],
     })
   },
-  onLoad() {
+  onLoad(options) {
+    const { transId, remark, volume } = options
+    const { uId } = wx.getStorageSync('user')
+    this.setData({ 'params.remark': remark, 'params.volume': volume, 'params.transId': transId, 'params.userId': uId })
     let canvasName = this.data.canvasName
     let ctx = wx.createCanvasContext(canvasName)
     this.setData({ ctx })
@@ -324,6 +335,7 @@ Page({
 
   //保存到相册
   subCanvas() {
+    const that = this
     wx.canvasToTempFilePath({
       canvasId: 'handWriting',
       fileType: 'png',
@@ -335,7 +347,12 @@ Page({
           header: { token: wx.getStorageSync('token') },
           name: 'file',
           success: (res) => {
-            console.log(res)
+            const { data } = JSON.parse(res.data)
+            that.setData({ 'params.sign': data })
+            ajax('/wxController/sign', that.data.params, 'post').then(() => {
+              Toast.success('签收成功')
+              wx.switchTab({ url: '/pages/index/index' })
+            })
           },
           fail: (err) => { reject(err) }
         });

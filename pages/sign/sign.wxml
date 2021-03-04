@@ -6,3 +6,5 @@
   </view>
   <canvas class="handWriting" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" bindtap="mouseDown" canvas-id="handWriting" />
 </view>
+<van-toast id="van-toast" />
+

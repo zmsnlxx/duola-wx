@@ -49,7 +49,6 @@
 }
 .info-card .card .top .content .btn button {
   height: 20px;
-  width: 60px;
 }
 .info-card .card .top .content .items {
   width: calc(100% - 90px);

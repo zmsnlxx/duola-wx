@@ -34,7 +34,8 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        wx.navigateTo({ url: `/${res.path}` })
+        console.log(res)
+        wx.navigateTo({ url: res.path })
       },
       fail() {
         Toast({ type: 'fail', context: this, message: '扫码失败' })

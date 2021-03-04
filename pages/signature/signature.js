@@ -1,5 +1,4 @@
 import { ajax } from '../../utils/http'
-import { transOrderStatus } from '../../utils/constant'
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 
 Page({
@@ -15,14 +14,22 @@ Page({
     params: {
       remark: '',
       volume: ''
-    }
+    },
+    id: ''
   },
   onLoad: function (options) {
+    console.log(options)
     if (options.id) {
       this.setData({ id: options.id })
       ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
         console.log(res)
         this.setData({ result: res })
+      })
+    } else {
+      const id = decodeURIComponent(options.q).split('=')[1]
+      ajax('/wxController/getLastTransOrderByCarId', { carId: id }).then(res => {
+        console.log(res)
+        this.setData({ result: res, id: res.transId })
       })
     }
   },
@@ -38,7 +45,7 @@ Page({
   },
   goSign() {
     const { remark, volume } = this.data.params
-    if (!volume) return Toask.fail('请填写签收方量')
-    wx.navigateTo({ url: `/pages/sign/sign?remark=${remark}&volume=${volume}` })
+    if (!volume) return Toast.fail('请填写签收方量')
+    wx.navigateTo({ url: `/pages/sign/sign?volume=${volume}&transId=${this.data.id}&remark=${remark}` })
   }
 })

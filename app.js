@@ -14,8 +14,18 @@ App({
     if (token) {
       const user = wx.getStorageSync('user')
       wx.switchTab({ url: '/pages/index/index' })
-      ajax('/wxController/getProjectByUserId', { userId: user.uId }).then(res => {
-        wx.setStorageSync('user', Object.assign(user, res))
+      wx.connectSocket({
+        url: `wss://api.xinhuajian.com//wxNewProjectSocket/${user.uId}`,
+      })
+      wx.onSocketOpen(function(res){
+        console.log('WebSocket连接已打开！', res)
+      })
+      wx.onSocketError(function(res){
+        console.log('WebSocket连接打开失败，请检查！')
+      })
+      wx.onSocketMessage(function(res) {
+        const project = JSON.parse(res.data)
+        wx.setStorageSync('user', Object.assign(user, project))
       })
     }
   },
