@@ -15,24 +15,36 @@
 
   .handBtn {
     position: absolute;
-    width: 44px;
-    height: 200px;
+    width: calc(100% - 32px);
+    height: 50px;
+    line-height: 44px;
     left: 16px;
     bottom: 24px;
     z-index: 2;
+    display: flex;
 
-    .van-icon {
-      margin-left: 10px;
-    }
+    button {
+      flex: 1;
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
 
-    .van-button {
-      height: 80px;
-    }
-
-    .cancel-btn {
-      button {
-        margin: 10px 0;
+      &:not(:last-child) {
+        margin-right: 10px;
       }
+
+      &:after {
+        border: none;
+      }
+    }
+
+    .plain {
+      color: #16D96C;
+    }
+
+    .submit {
+      background: #16D96C;
+      color: #FFFFFF;
     }
   }
 }

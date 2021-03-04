@@ -5,7 +5,12 @@ Page({
     openid: '',
   },
   jump() {
-    wx.navigateTo({ url: '/pages/login/login' })
+    const token = wx.getStorageSync('token')
+    if (token) {
+      wx.switchTab({ url: '/pages/index/index' })
+    } else {
+      wx.navigateTo({ url: '/pages/login/login' })
+    }
     // const that = this;
     // const { encryptedData, iv } = e.detail
     // wx.checkSession({

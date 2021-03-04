@@ -13,7 +13,6 @@ App({
     const token = wx.getStorageSync('token')
     if (token) {
       const user = wx.getStorageSync('user')
-      wx.switchTab({ url: '/pages/index/index' })
       wx.connectSocket({
         url: `wss://api.xinhuajian.com//wxNewProjectSocket/${user.uId}`,
       })
