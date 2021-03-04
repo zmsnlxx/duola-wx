@@ -350,8 +350,13 @@ Page({
             const { data } = JSON.parse(res.data)
             that.setData({ 'params.sign': data })
             ajax('/wxController/sign', that.data.params, 'post').then(() => {
-              Toast.success('签收成功')
-              wx.switchTab({ url: '/pages/index/index' })
+              Toast({
+                type: 'success',
+                message: '提交成功！',
+                onClose: () => {
+                  wx.switchTab({ url: '/pages/index/index' })
+                }
+              })
             })
           },
           fail: (err) => { reject(err) }

@@ -2,7 +2,7 @@
   <view class="content">
     <view class="title van-hairline--bottom">
       <view class="car">{{ result.carNo }}</view>
-      <view class="status">{{ transOrderStatus[result.status] }}</view>
+      <view class="status">{{ result.statusStr }}</view>
     </view>
     <view class="box">
       <view class="item">
@@ -24,7 +24,7 @@
       </view>
       <view class="right">
         <view class="status">{{ item.status }}</view>
-        <view class="msg">{{ item.siteName }}</view>
+        <view wx:if="{{ item.status === 4 }}" class="msg">{{ item.siteName }}</view>
       </view>
     </view>
   </view>

@@ -37,6 +37,7 @@
   color: #000000;
   font-size: 14px;
   line-height: 20px;
+  width: calc(100% - 104px);
 }
 .feedback-detail .card .item {
   display: flex;

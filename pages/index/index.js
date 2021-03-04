@@ -15,16 +15,27 @@ Page({
       { label: '在途方量', key: 'transit' },
     ],
     list: [],
+    params: {
+      startPage: 1,
+      pageSize: 10,
+      projectId: ''
+    },
+    total: 0
   },
   onShow() {
     const { projectId } = wx.getStorageSync('user')
-    ajax('/wxController/getTransOrderByProjectId', { projectId, startPage: 1, pageSize: 999 }).then(res => {
-      this.setData({ list: res.list })
-    })
+    this.setData({ 'params.projectId': projectId })
+    this.getList()
+
     ajax('/wxController/signCount', { id: projectId }).then(res => {
       Object.keys(this.data.result).forEach(key => {
         this.setData({ [`result.${key}`]: res[key] })
       })
+    })
+  },
+  getList() {
+    ajax('/wxController/getTransOrderByProjectId', this.data.params).then(res => {
+      this.setData({ list: res.list, total: res.total })
     })
   },
   jump() {
@@ -41,5 +52,20 @@ Page({
         Toast({ type: 'fail', context: this, message: '扫码失败' })
       }
     })
+  },
+
+  onReachBottom() {
+    const { pageSize, startPage } = this.data.params
+    if (pageSize * startPage > this.data.total) return
+    this.setData({ 'params.startPage': startPage + 1 })
+    this.getList()
+  },
+  onHide() {
+    this.setData({ list: [], 'params.startPage': 1 })
+  },
+  onPullDownRefresh() {
+    this.setData({ list: [], 'params.startPage': 1 })
+    this.getList()
+    wx.stopPullDownRefresh()
   },
 })

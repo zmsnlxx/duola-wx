@@ -39,6 +39,7 @@
 }
 .order-detail .content .item .value {
   color: #000000;
+  width: calc(100% - 98px);
 }
 .order-detail .footer {
   width: calc(100% - 32px);

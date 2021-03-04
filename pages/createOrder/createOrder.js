@@ -20,7 +20,7 @@ Page({
     radio: '1',
     isEdit: false,
     id: '',
-    form: { goodsId: '', isPump: '1', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '94,95,97', total: '', wishTime: '', },
+    form: { goodsId: '', isPump: '2', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '94,95,97', total: '', wishTime: '', },
     show: { goodsId: false, specialId: false, wishTime: false },
     formatter(type, value) {
       if (type === 'year') {

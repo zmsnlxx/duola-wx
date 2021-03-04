@@ -2,5 +2,7 @@
   "usingComponents": {
     "info-card": "../../components/infoCard/infoCard"
   },
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
