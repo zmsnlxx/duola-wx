@@ -18,7 +18,7 @@
             <view class="value" wx:else="">-  -</view>
           </view>
         </view>
-        <van-button wx:if="{{ info.status === 4 }}" color="#16D96C" class="btn" catchtap="sign" block round>签收</van-button>
+        <van-button wx:if="{{ info.flag || show }}" color="#16D96C" class="btn" catchtap="sign" block round>签收</van-button>
       </view>
     </view>
     <view class="bottom">

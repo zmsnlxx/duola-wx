@@ -31,7 +31,7 @@
         <van-icon name="play" color="#16D96C" size="16" />
       </view>
     </view>
-    <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
+    <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" show="{{ true }}" />
   </view>
   <custom-tabbar class="custom-tabbar" activeIndex='0' />
 </view>

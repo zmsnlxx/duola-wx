@@ -6,6 +6,10 @@ Component({
       type: Object,
       value: {},
     },
+    show: {
+      type: Boolean,
+      value: false
+    }
   },
   data: {
     projectName: wx.getStorageSync('user').projectName,

@@ -30,6 +30,6 @@
   </view>
   <view class="footer">
     <view class="msg" bindtap="goFeedback">点击此处对该单进行投诉建议</view>
-    <van-button wx:if="{{ result.status === 4 }}" bindtap="goSign" block color="#16D96C">签收</van-button>
+    <van-button wx:if="{{ result.flag }}" bindtap="goSign" block color="#16D96C">签收</van-button>
   </view>
 </view>
