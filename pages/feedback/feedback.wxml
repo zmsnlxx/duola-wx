@@ -1,4 +1,4 @@
-<view class="feedback">
+<view class="feedback" wx:if="{{ list.length }}">
   <view class="item" wx:for="{{ list }}" wx:key="index" bindtap="goDetail" data-id="{{ item.id }}">
     <view class="title">
       <view class="name">{{ item.projectName }}</view>
@@ -8,3 +8,5 @@
     <view class="time">{{ item.addTime }}</view>
   </view>
 </view>
+<van-empty wx:else description="暂无数据" image="https://img.yzcdn.cn/vant/custom-empty-image.png" />
+

@@ -1,6 +1,7 @@
 <view class="other-car">
   <map id="mapId" class="map" scale="10" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" show-location />
-  <view class="content">
+  <view class="content" wx:if="{{ list.length }}">
     <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
   </view>
+  <van-empty wx:else description="暂无数据" image="https://img.yzcdn.cn/vant/custom-empty-image.png" />
 </view>

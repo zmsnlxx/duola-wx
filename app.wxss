@@ -5,3 +5,8 @@ page {
   Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
   sans-serif;
 }
+
+.van-empty__image {
+  width: 100px !important;
+  height: 100px !important;
+}

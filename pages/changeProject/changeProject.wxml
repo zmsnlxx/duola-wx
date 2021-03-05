@@ -12,20 +12,23 @@
   </view>
   <view class="list">
     <view class="title">切换工程记录</view>
-    <view wx:for="{{ list }}" wx:key="index" class="item van-hairline--bottom">
-      <view class="first-title flex">
-        <view class="name van-ellipsis">{{ item.remark }}</view>
-        <view class="status {{ ['pending', 'success', 'error'][item.status] }}">{{ examineStatus[item.status] }}</view>
-      </view>
-      <view class="second-title flex">
-        <view class="time">{{ item.addTime }}</view>
-        <van-button wx:if="{{ item.status === 0 }}" color="#16D96C" bindtap="changeStatus" data-id="{{ item.id }}" round>撤回</van-button>
-      </view>
-      <view wx:if="{{ item.status === 2 }}" class="error-box">
-        <view class="error-title">拒绝理由</view>
-        <view class="error-content">{{ item.reason || '' }}</view>
+    <view wx:if="{{ list.length }}">
+      <view wx:for="{{ list }}" wx:key="index" class="item van-hairline--bottom">
+        <view class="first-title flex">
+          <view class="name van-ellipsis">{{ item.remark }}</view>
+          <view class="status {{ ['pending', 'success', 'error'][item.status] }}">{{ examineStatus[item.status] }}</view>
+        </view>
+        <view class="second-title flex">
+          <view class="time">{{ item.addTime }}</view>
+          <van-button wx:if="{{ item.status === 0 }}" color="#16D96C" bindtap="changeStatus" data-id="{{ item.id }}" round>撤回</van-button>
+        </view>
+        <view wx:if="{{ item.status === 2 }}" class="error-box">
+          <view class="error-title">拒绝理由</view>
+          <view class="error-content">{{ item.reason || '' }}</view>
+        </view>
       </view>
     </view>
+    <van-empty wx:else description="暂无数据" image="https://img.yzcdn.cn/vant/custom-empty-image.png" />
   </view>
   <view wx:if="{{ flag === 0 }}" class="footer">
     <van-button block color="#16D96C" class="btn" bindtap="changeProject">提交审核</van-button>
