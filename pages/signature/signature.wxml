@@ -14,7 +14,7 @@
       </view>
       <view class="msg">准确填写实际签收的方量</view>
       <view class="content">
-        <van-field type="number" class="field" border="{{ false }}" bind:change="changeValue" clearable />
+        <van-field type="number" class="field" value="{{ value }}" border="{{ false }}" bind:change="changeValue" clearable />
         <view class="unit">m³</view>
       </view>
     </view>

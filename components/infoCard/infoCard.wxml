@@ -14,7 +14,7 @@
           </view>
           <view class="item flex">
             <view class="text">签</view>
-            <view class="value" wx:if="{{ info.sign }}">{{ info.sign }}m³</view>
+            <view class="value" wx:if="{{ info.signVolume }}">{{ info.signVolume }}m³</view>
             <view class="value" wx:else="">-  -</view>
           </view>
         </view>

@@ -46,7 +46,8 @@ Page({
       onlyFromCamera: true,
       success(res) {
         console.log(res)
-        wx.navigateTo({ url: res.path })
+        const id = res.result.split('?')[1].split('=')[1]
+        wx.navigateTo({ url: `/pages/signature/signature?id=${id}` })
       },
       fail() {
         Toast({ type: 'fail', context: this, message: '扫码失败' })

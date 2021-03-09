@@ -6,27 +6,33 @@ Page({
     latitude: '',
     longitude: '',
     markers: [],
+    defaultMarkers: [],
+    loadTime: '',
+    show: false,
+    formatter(type, value) {
+      if (type === 'year') {
+        return `${value}年`
+      } else if (type === 'month') {
+        return `${value}月`
+      }
+      return value
+    },
+    minDate: new Date("2020-01-01 00:00:00").getTime(),
   },
-  onShow() {
-    const that = this
-    const { projectId, projectLatitude, mixingStationLatitude, mixingStationLongitude, mixingStationName, projectLongitude } = wx.getStorageSync('user')
+  onLoad() {
+    const { projectLatitude, mixingStationLatitude, mixingStationLongitude, mixingStationName, projectLongitude } = wx.getStorageSync('user')
     const projectPosition = this.convert2TecentMap(projectLongitude, projectLatitude)
     const mixingStationPosition = this.convert2TecentMap(mixingStationLongitude, mixingStationLatitude)
     const markers = [
       {
         latitude: projectPosition.lat, longitude: projectPosition.lng,
-        iconPath: '../../public/image/map-one.png',
-        width: 16,
-        height: 16,
-        label: {
-          content: '',  //文本
-          color: '#FFFFFF',  //文本颜色
-          borderRadius: 100,  //边框圆角
-          bgColor: 'rgba(193, 213, 212, 0.35)',  //背景色
-          padding: 100,  //文本边缘留白
-          anchorY: -100,
-          textAlign: 'center',  //文本对齐方式。有效值: left, right, center
-        },
+        iconPath: '../../public/image/map-position.png',
+        width: 100,
+        height: 100,
+        anchor: {
+          x: .5,
+          y: .5
+        }
       },
       {
         latitude: mixingStationPosition.lat,
@@ -41,8 +47,15 @@ Page({
         },
       },
     ]
-    that.setData({ latitude: projectPosition.lat, longitude: projectPosition.lng, markers })
-    ajax('/wxController/getAllTransOrderByProjectId', { projectId }).then(res => {
+    this.setData({ latitude: projectPosition.lat, longitude: projectPosition.lng, defaultMarkers: markers })
+  },
+  onShow() {
+    this.getList()
+  },
+  getList() {
+    const { projectId } = wx.getStorageSync('user')
+    this.setData({ markers: [] })
+    ajax('/wxController/getAllTransOrderByProjectId', { projectId, loadTime: this.data.loadTime }).then(res => {
       const { list, carList } = res
       const markers = carList.map(item => {
         return {
@@ -63,9 +76,21 @@ Page({
           },
         }
       })
-      this.setData({ list, markers: this.data.markers.concat(markers) })
+      this.setData({ list, markers: [...this.data.defaultMarkers, ...markers] })
+      console.log(this.data.markers)
     })
   },
+  open() {
+    this.setData({ show: true })
+  },
+  onDateConfirm(e) {
+    this.setData({ loadTime: e.detail, show: false })
+    this.getList()
+  },
+  close() {
+    this.setData({ show: false, loadTime: '' })
+  },
+  preventTouchMove() {},
   convert2TecentMap(lng, lat) {
     if (lng === '' && lat === '') {
       return {

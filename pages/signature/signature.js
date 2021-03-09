@@ -15,7 +15,8 @@ Page({
       remark: '',
       volume: ''
     },
-    id: ''
+    id: '',
+    value: ''
   },
   onLoad: function (options) {
     console.log(options)
@@ -32,6 +33,8 @@ Page({
         this.setData({ result: res, id: res.transId })
       })
     }
+    const value = this.data.result.total
+    this.setData({ value, 'params.volume': value })
   },
 
   cancel() {

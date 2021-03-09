@@ -1,7 +1,15 @@
 <view class="other-car">
   <map id="mapId" class="map" scale="10" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" show-location />
+  <view class="select" bindtap="open">
+    <view class="text">请选择日期</view>
+    <image src="../../public/image/date.png" />
+  </view>
   <view class="content" wx:if="{{ list.length }}">
     <info-card wx:for="{{ list }}" wx:key="index" info="{{ item }}" />
   </view>
   <van-empty wx:else description="暂无数据" image="https://img.yzcdn.cn/vant/custom-empty-image.png" />
 </view>
+
+<van-popup show="{{ show }}" catchtouchmove="preventTouchMove" position="bottom" bind:close="close">
+  <van-datetime-picker title="请选择时间" min-date="{{ minDate }}" show-toolbar value="{{ loadTime }}" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+</van-popup>
