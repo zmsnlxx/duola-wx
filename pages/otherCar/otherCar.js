@@ -58,9 +58,10 @@ Page({
     ajax('/wxController/getAllTransOrderByProjectId', { projectId, loadTime: this.data.loadTime }).then(res => {
       const { list, carList } = res
       const markers = carList.map(item => {
+        const { lat, lng } = this.convert2TecentMap(item.longitude, item.latitude)
         return {
-          latitude: item.latitude,
-          longitude: item.longitude,
+          latitude: lat,
+          longitude: lng,
           id: item.carId,
           iconPath: '../../public/image/map-two.png',
           width: 16,
