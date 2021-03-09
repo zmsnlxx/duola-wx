@@ -17,7 +17,7 @@ Page({
       }
       return value
     },
-    minDate: new Date("2020-01-01 00:00:00").getTime(),
+    minDate: 1577808000000,
   },
   onLoad() {
     const { projectLatitude, mixingStationLatitude, mixingStationLongitude, mixingStationName, projectLongitude } = wx.getStorageSync('user')
