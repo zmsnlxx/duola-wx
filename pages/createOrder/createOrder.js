@@ -17,10 +17,10 @@ Page({
     minDate: new Date().getTime(),
     specialIds: [],
     goodsIds: [],
-    radio: '1',
+    radio: '0',
     isEdit: false,
     id: '',
-    form: { goodsId: '', isPump: '2', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '94,95,97', total: '', wishTime: '', },
+    form: { goodsId: '', isPump: '0', part: '', projectAddress: '', projectId: '', projectName: '', slump: '', specialId: '94,95,97', total: '', wishTime: '', },
     show: { goodsId: false, specialId: false, wishTime: false },
     formatter(type, value) {
       if (type === 'year') {

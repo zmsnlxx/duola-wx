@@ -17,8 +17,8 @@
         <van-radio use-icon-slot value="{{ radio }}" name="1">
           <image slot="icon" src="{{ radio === '1' ? '../../public/image/radio-active.png' : '../../public/image/radio.png' }}" />是
         </van-radio>
-        <van-radio use-icon-slot value="{{ radio }}" name="2">
-          <image slot="icon" src="{{ radio === '2' ? '../../public/image/radio-active.png' : '../../public/image/radio.png' }}" />否
+        <van-radio use-icon-slot value="{{ radio }}" name="0">
+          <image slot="icon" src="{{ radio === '0' ? '../../public/image/radio-active.png' : '../../public/image/radio.png' }}" />否
         </van-radio>
       </view>
     </van-radio-group>
