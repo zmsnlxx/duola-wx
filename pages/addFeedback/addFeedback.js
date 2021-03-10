@@ -34,6 +34,7 @@ Page({
       header: { token: wx.getStorageSync('token') },
       name: 'file',
       success: (res) => {
+        console.log(res)
         const result = JSON.parse(res.data)
         const fileList = this.data.fileList
         fileList.push({
@@ -43,7 +44,7 @@ Page({
         })
         that.setData({ fileList })
       },
-      fail: (err) => { reject(err) }
+      fail: err => { console.log(err) }
     });
   },
   cancel() {
