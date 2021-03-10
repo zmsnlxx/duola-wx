@@ -1,7 +1,7 @@
 <view class="other-car">
   <map id="mapId" class="map" scale="10" latitude="{{ latitude }}" longitude="{{ longitude }}" markers="{{ markers }}" show-location />
   <view class="select" bindtap="open">
-    <view class="text">请选择日期</view>
+    <view class="text">{{ timeText }}</view>
     <image src="../../public/image/date.png" />
   </view>
   <view class="content" wx:if="{{ list.length }}">

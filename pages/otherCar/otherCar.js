@@ -1,4 +1,5 @@
 import { ajax } from '../../utils/http'
+import { formatTime } from '../../utils/util'
 
 Page({
   data: {
@@ -18,7 +19,8 @@ Page({
       return value
     },
     minDate: 1577808000000,
-    time: new Date().getTime()
+    time: new Date().getTime(),
+    timeText: '请选择日期'
   },
   onLoad() {
     const { projectLatitude, mixingStationLatitude, mixingStationLongitude, mixingStationName, projectLongitude } = wx.getStorageSync('user')
@@ -79,14 +81,14 @@ Page({
         }
       })
       this.setData({ list, markers: [...this.data.defaultMarkers, ...markers] })
-      console.log(this.data.markers)
     })
   },
   open() {
     this.setData({ show: true })
   },
   onDateConfirm(e) {
-    this.setData({ loadTime: e.detail, show: false, time: e.detail })
+    console.log(e.detail)
+    this.setData({ loadTime: e.detail, show: false, time: e.detail, timeText: formatTime(new Date(e.detail)) })
     this.getList()
   },
   close() {
