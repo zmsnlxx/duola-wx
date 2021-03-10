@@ -18,6 +18,7 @@ Page({
       return value
     },
     minDate: 1577808000000,
+    time: new Date().getTime()
   },
   onLoad() {
     const { projectLatitude, mixingStationLatitude, mixingStationLongitude, mixingStationName, projectLongitude } = wx.getStorageSync('user')
@@ -85,7 +86,7 @@ Page({
     this.setData({ show: true })
   },
   onDateConfirm(e) {
-    this.setData({ loadTime: e.detail, show: false })
+    this.setData({ loadTime: e.detail, show: false, time: e.detail })
     this.getList()
   },
   close() {

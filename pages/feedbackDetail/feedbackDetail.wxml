@@ -19,12 +19,12 @@
     <view class="box">
       <view class="label">照片</view>
       <view class="top">
-        <image wx:for="{{ result.userPhotos }}" wx:key="index" src="{{ item }}" />
+        <image wx:for="{{ result.userPhotos }}" wx:key="index" bindtap="previewImage" data-list="{{ result.userPhotos }}" data-src="{{ item }}" src="{{ item }}" />
       </view>
     </view>
   </view>
 
-  <view wx:if="{{ result.status === 2 }}" class="card">
+  <view wx:if="{{ result.status !== 0  }}" class="card">
     <view class="title">
       <view class="text">回复信息</view>
     </view>
@@ -39,7 +39,7 @@
     <view class="box">
       <view class="label">照片</view>
       <view class="top">
-        <image wx:for="{{ result.adminPhotos }}" wx:key="index" src="{{ item }}" />
+        <image wx:for="{{ result.adminPhotos }}" bindtap="previewImage" data-list="{{ result.adminPhotos }}" data-src="{{ item }}"  wx:key="index" src="{{ item }}" />
       </view>
     </view>
   </view>

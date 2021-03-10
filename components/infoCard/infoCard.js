@@ -1,4 +1,3 @@
-import { transOrderStatus } from '../../utils/constant'
 
 Component({
   properties: {
@@ -13,7 +12,6 @@ Component({
   },
   data: {
     projectName: wx.getStorageSync('user').projectName,
-    transOrderStatus,
   },
   methods: {
     jumpDetail() {

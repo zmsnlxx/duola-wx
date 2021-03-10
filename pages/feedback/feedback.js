@@ -22,6 +22,8 @@ Page({
     })
   },
   onShow() {
+    this.setData({ list: [], 'params.startPage': 1 })
+
     this.getList()
   },
   goDetail (e) {
@@ -32,9 +34,6 @@ Page({
     if (pageSize * startPage > this.data.total) return
     this.setData({ 'params.startPage': startPage + 1 })
     this.getList()
-  },
-  onHide() {
-    this.setData({ list: [], 'params.startPage': 1 })
   },
   onPullDownRefresh() {
     this.setData({ list: [], 'params.startPage': 1 })

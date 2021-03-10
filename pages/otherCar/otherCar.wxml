@@ -11,5 +11,5 @@
 </view>
 
 <van-popup show="{{ show }}" catchtouchmove="preventTouchMove" position="bottom" bind:close="close">
-  <van-datetime-picker title="请选择时间" min-date="{{ minDate }}" show-toolbar value="{{ loadTime }}" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
+  <van-datetime-picker title="请选择时间" min-date="{{ minDate }}" show-toolbar value="{{ time }}" type="date" bind:cancel="close" bind:confirm="onDateConfirm" formatter="{{ formatter }}" />
 </van-popup>

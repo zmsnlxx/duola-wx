@@ -24,7 +24,7 @@ Page({
   },
   onShow() {
     const { projectId } = wx.getStorageSync('user')
-    this.setData({ 'params.projectId': projectId })
+    this.setData({ list: [], 'params.startPage': 1, 'params.projectId': projectId })
     this.getList()
 
     ajax('/wxController/signCount', { id: projectId }).then(res => {
@@ -47,7 +47,7 @@ Page({
       success(res) {
         console.log(res)
         const id = res.result.split('?')[1].split('=')[1]
-        wx.navigateTo({ url: `/pages/signature/signature?id=${id}` })
+        wx.navigateTo({ url: `/pages/signature/signature?id=${id}&type=car` })
       },
       fail() {
         Toast({ type: 'fail', context: this, message: '扫码失败' })
@@ -60,9 +60,6 @@ Page({
     if (pageSize * startPage > this.data.total) return
     this.setData({ 'params.startPage': startPage + 1 })
     this.getList()
-  },
-  onHide() {
-    this.setData({ list: [], 'params.startPage': 1 })
   },
   onPullDownRefresh() {
     this.setData({ list: [], 'params.startPage': 1 })

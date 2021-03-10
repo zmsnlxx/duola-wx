@@ -16,5 +16,12 @@ Page({
         this.setData({ id: options.id, result: res })
       })
     }
+  },
+  previewImage(e) {
+    const { list, src } = e.currentTarget.dataset
+    wx.previewImage({
+      current: src,
+      urls: list,
+    })
   }
 })

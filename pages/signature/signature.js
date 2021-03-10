@@ -21,20 +21,24 @@ Page({
   onLoad: function (options) {
     console.log(options)
     if (options.id) {
-      this.setData({ id: options.id })
-      ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
-        console.log(res)
-        this.setData({ result: res })
-      })
+      if (options.type === 'car') {
+        ajax('/wxController/getLastTransOrderByCarId', { carId: options.id }).then(res => {
+          console.log(res)
+          this.setData({ result: res, id: res.transId, value: res.total, 'params.volume': res.total })
+        })
+      } else {
+        ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
+          console.log(res)
+          this.setData({ result: res, id: options.id, value: res.total, 'params.volume': res.total })
+        })
+      }
     } else {
       const id = decodeURIComponent(options.q).split('=')[1]
       ajax('/wxController/getLastTransOrderByCarId', { carId: id }).then(res => {
         console.log(res)
-        this.setData({ result: res, id: res.transId })
+        this.setData({ result: res, id: res.transId, value: res.total, 'params.volume': res.total  })
       })
     }
-    const value = this.data.result.total
-    this.setData({ value, 'params.volume': value })
   },
 
   cancel() {

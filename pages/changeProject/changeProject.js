@@ -22,6 +22,7 @@ Page({
     this.setData({ projectName, 'params.userId': uId })
   },
   onShow() {
+    this.setData({ list: [], 'params.startPage': 1 })
     this.getList()
   },
   getList() {
@@ -40,9 +41,6 @@ Page({
   resetList() {
     this.setData({ list: [], 'params.startPage': 1 })
     this.getList()
-  },
-  onHide() {
-    this.setData({ list: [], 'params.startPage': 1 })
   },
   changeProject() {
     if (!this.data.remark) return Toast.fail('请填写您需要加入的工程')

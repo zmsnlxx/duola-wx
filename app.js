@@ -24,6 +24,7 @@ App({
       })
       wx.onSocketMessage(function(res) {
         const project = JSON.parse(res.data)
+        console.log(project)
         wx.setStorageSync('user', Object.assign(user, project))
       })
     }

@@ -19,6 +19,7 @@ Page({
     this.setData({ 'params.userId': uId, 'params.projectId': projectId })
   },
   onShow() {
+    this.setData({ list: [], 'params.startPage': 1 })
     this.getList()
   },
   getList() {
@@ -34,9 +35,6 @@ Page({
   },
   goDetail (e) {
     wx.navigateTo({ url: `/pages/orderDetail/orderDetail?id=${e.currentTarget.dataset.id}` })
-  },
-  onHide() {
-    this.setData({ list: [], 'params.startPage': 1 })
   },
   onPullDownRefresh() {
     this.setData({ list: [], 'params.startPage': 1 })
