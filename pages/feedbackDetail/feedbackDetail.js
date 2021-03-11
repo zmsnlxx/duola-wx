@@ -12,7 +12,6 @@ Page({
         if (res.status === 2) {
           res.adminPhotos = res.adminPhoto.split(',')
         }
-        console.log(res)
         this.setData({ id: options.id, result: res })
       })
     }

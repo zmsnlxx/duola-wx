@@ -45,7 +45,6 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        console.log(res)
         const id = res.result.split('?')[1].split('=')[1]
         wx.navigateTo({ url: `/pages/signature/signature?id=${id}&type=car` })
       },

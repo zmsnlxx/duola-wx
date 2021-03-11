@@ -28,6 +28,10 @@ Page({
     this.setData({ fileList })
   },
   afterRead(e) {
+    wx.showLoading({
+      title: '上传中',
+      mask: true
+    })
     const that = this
     const { url } = e.detail.file[0]
     wx.getImageInfo({
@@ -68,6 +72,7 @@ Page({
                     thumb: result.data
                   })
                   that.setData({ fileList })
+                  wx.nextTick(() => wx.hideLoading())
                 },
                 fail: err => { console.log(err) }
               });

@@ -87,7 +87,6 @@ Page({
     this.setData({ show: true })
   },
   onDateConfirm(e) {
-    console.log(e.detail)
     this.setData({ loadTime: e.detail, show: false, time: e.detail, timeText: formatTime(new Date(e.detail)) })
     this.getList()
   },

@@ -19,23 +19,19 @@ Page({
     value: ''
   },
   onLoad: function (options) {
-    console.log(options)
     if (options.id) {
       if (options.type === 'car') {
         ajax('/wxController/getLastTransOrderByCarId', { carId: options.id }).then(res => {
-          console.log(res)
           this.setData({ result: res, id: res.transId, value: res.total, 'params.volume': res.total })
         })
       } else {
         ajax('/wxController/transOrderInfo', { transId: options.id }).then(res => {
-          console.log(res)
           this.setData({ result: res, id: options.id, value: res.total, 'params.volume': res.total })
         })
       }
     } else {
       const id = decodeURIComponent(options.q).split('=')[1]
       ajax('/wxController/getLastTransOrderByCarId', { carId: id }).then(res => {
-        console.log(res)
         this.setData({ result: res, id: res.transId, value: res.total, 'params.volume': res.total  })
       })
     }
@@ -53,6 +49,7 @@ Page({
   goSign() {
     const { remark, volume } = this.data.params
     if (!volume) return Toast.fail('请填写签收方量')
+    if (Number(volume) > this.data.result.total) return Toast.fail('签收方量不得大于运输方量')
     wx.navigateTo({ url: `/pages/sign/sign?volume=${volume}&transId=${this.data.id}&remark=${remark}` })
   }
 })

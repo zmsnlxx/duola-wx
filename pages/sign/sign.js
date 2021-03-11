@@ -244,10 +244,6 @@ Page({
       if (point.length === 3) {
         let a = this.ctaCalc(point[0].x, point[0].y, point[0].r, point[1].x, point[1].y, point[1].r, point[2].x, point[2].y, point[2].r)
         a[0].color = this.data.lineColor
-        // let bethelPoint = this.data.bethelPoint;
-        // console.log(a)
-        // console.log(this.data.bethelPoint)
-        // bethelPoint = bethelPoint.push(a);
         this.bethelDraw(a, 1)
         point = [{ x: x, y: y, r: r }]
       }
@@ -324,7 +320,6 @@ Page({
     ctx.draw(true)
   },
   selectColorEvent(event) {
-    console.log(event)
     var color = event.currentTarget.dataset.colorValue
     var colorSelected = event.currentTarget.dataset.color
     this.setData({
