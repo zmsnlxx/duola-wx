@@ -10,6 +10,8 @@ Page({
       userPhoto: '',
       transId: '',
     },
+    cWidth: 0,
+    cHeight: 0,
     fileList: [],
   },
   onLoad(options) {
@@ -28,24 +30,55 @@ Page({
   afterRead(e) {
     const that = this
     const { url } = e.detail.file[0]
-    wx.uploadFile({
-      url: 'https://api.xinhuajian.com/upLoadPhoto',
-      filePath: url,
-      header: { token: wx.getStorageSync('token') },
-      name: 'file',
+    wx.getImageInfo({
+      src: url,
       success: (res) => {
-        console.log(res)
-        const result = JSON.parse(res.data)
-        const fileList = this.data.fileList
-        fileList.push({
-          url: result.data,
-          isImage: true,
-          thumb: result.data
+        let ratio = 2;
+        let canvasWidth = res.width
+        let canvasHeight = res.height
+        while (canvasWidth > 400 || canvasHeight > 400){ // 保证宽高在400以内
+          canvasWidth = Math.trunc(res.width / ratio)
+          canvasHeight = Math.trunc(res.height / ratio)
+          ratio++;
+        }
+        that.setData({
+          cWidth: canvasWidth,
+          cHeight: canvasHeight
         })
-        that.setData({ fileList })
-      },
-      fail: err => { console.log(err) }
-    });
+
+        var ctx = wx.createCanvasContext('canvas')
+        ctx.drawImage(res.path, 0, 0, canvasWidth, canvasHeight)
+        ctx.draw(false, setTimeout(() => {
+          wx.canvasToTempFilePath({
+            canvasId: 'canvas',
+            destWidth: canvasWidth,
+            destHeight: canvasHeight,
+            success: function (res) {
+              wx.uploadFile({
+                url: 'https://api.xinhuajian.com/upLoadPhoto',
+                filePath: res.tempFilePath,
+                header: { token: wx.getStorageSync('token') },
+                name: 'file',
+                success: (res) => {
+                  const result = JSON.parse(res.data)
+                  const fileList = that.data.fileList
+                  fileList.push({
+                    url: result.data,
+                    isImage: true,
+                    thumb: result.data
+                  })
+                  that.setData({ fileList })
+                },
+                fail: err => { console.log(err) }
+              });
+            },
+            fail: function (res) {
+              console.log(res.errMsg)
+            }
+          })
+        },100))
+      }
+    })
   },
   cancel() {
     wx.navigateBack()
